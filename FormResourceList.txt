@@ -1,0 +1,1058 @@
+$Forms/CXFSMSStatus.lfrm
+{
+	TRTR.UN.0.1000001~Durum Bilgisi=
+
+}
+$Forms/CXFSMSBatchOperationBrowser.lfrm
+{
+	ENUS.UN.90200.172~Operations=
+	TRTR.UN.90200.172~İşlemler=
+
+	ENUS.UN.12000.1~Records=
+	TRTR.UN.12000.1~Kayıtlar=
+
+	ENUS.UN.12000.601~Retrieving...=
+	TRTR.UN.12000.601~Okunuyor...=
+
+	ENUS.UN.12000.603~Deleting...=
+	TRTR.UN.12000.603~Siliniyor...=
+
+	ENUS.UN.12000.604~This record is currently being used by another user.=
+	TRTR.UN.12000.604~Seçilen kayıt başka kullanıcılar tarafından kullanılıyor.=
+
+	ENUS.UN.12000.605~Cannot retrieve the record (Possible reasons: Deleted record, communication failure)=
+	TRTR.UN.12000.605~Kayıt okunamıyor. (Olası nedenler: Silinme, veri iletişim hataları)=
+
+	ENUS.UN.12000.607~Delete this record?=
+	TRTR.UN.12000.607~Kayıt silinecektir. Devam etmek istiyor musunuz?=
+
+	ENUS.UN.90200.173~Transaction No.=
+	TRTR.UN.90200.173~İşlem No=
+
+	ENUS.UN.90200.174~Transaction Name=
+	TRTR.UN.90200.174~İşlem Adı=
+
+	ENUS.UN.90200.175~Transaction Status=
+	TRTR.UN.90200.175~İşlem Durumu=
+
+	ENUS.UN.90200.210~Number of Sub Operation=
+	TRTR.UN.90200.210~Alt İşlem Sayısı=
+
+	ENUS.UN.90200.176~Record Date=
+	TRTR.UN.90200.176~Kayıt Tarihi=
+
+	ENUS.UN.90200.97~Start Date=
+	TRTR.UN.90200.97~Başlangıç Tarihi=
+
+	ENUS.UN.90200.105~End Date=
+	TRTR.UN.90200.105~Bitiş Tarihi=
+
+	ENUS.UN.12642.101~User=
+	TRTR.UN.12642.101~Kullanıcı=
+
+	ENUS.UN.12642.113~Updated Records=
+	TRTR.UN.12642.113~Değişen Kayıt=
+
+	ENUS.UN.12642.112~Total Records=
+	TRTR.UN.12642.112~Toplam Kayıt=
+
+	ENUS.UN.12642.111~Scheduled Date=
+	TRTR.UN.12642.111~Planlama Tarihi=
+
+	ENUS.UN.12000.103~Delete=
+	TRTR.UN.12000.103~Sil=
+
+	ENUS.UN.12000.105~View=
+	TRTR.UN.12000.105~İncele=
+
+	ENUS.UN.90262.1~Suspend=
+	TRTR.UN.90262.1~Duraklat=
+
+	ENUS.UN.90262.2~Resume=
+	TRTR.UN.90262.2~Sürdür=
+
+	ENUS.UN.90262.3~Terminate=
+	TRTR.UN.90262.3~İptal Et=
+
+	ENUS.UN.90262.4~Rollback=
+	TRTR.UN.90262.4~Geri al=
+
+	ENUS.UN.12000.106~Attached Records=
+	TRTR.UN.12000.106~Bağlı Kayıtlar=
+
+	ENUS.UN.80300.153~C&lose=
+	TRTR.UN.80300.153~&Kapat=
+
+	ENUS.UN.12000.2~Filters=
+	TRTR.UN.12000.2~Filtreler=
+
+	ENUS.UN.70055.1~User=
+	TRTR.UN.70055.1~Kullanıcı=
+
+	ENUS.UN.70055.6~Operation=
+	TRTR.UN.70055.6~İşlem=
+
+	ENUS.UN.90200.175~Transaction Status=
+	TRTR.UN.90200.175~İşlem Durumu=
+
+	ENUS.UN.70055.15~Start Date=
+	TRTR.UN.70055.15~Başlangıç Tarihi=
+
+	ENUS.UN.70055.16~Ending Date=
+	TRTR.UN.70055.16~Bitiş Tarihi=
+
+	ENUS.UN.70055.20~Operation Execution Mode=
+	TRTR.UN.70055.20~İşlem Çalışma Şekli=
+
+	ENUS.UN.12000.109~Save filter settings=
+	TRTR.UN.12000.109~Filtre değerlerini sakla=
+
+	ENUS.UN.12000.110~Load filter settings=
+	TRTR.UN.12000.110~Filtre değerlerini yükle=
+
+	ENUS.UN.12000.156~&Apply=
+	TRTR.UN.12000.156~&Uygula=
+
+}
+$Forms/CXFSMSAlertsBrowser.lfrm
+{
+	TRTR.UN.0.10063~Zamanlanmış Mesajlar=
+
+	ENUS.UN.8802.100~Retrieving...=
+	TRTR.UN.8802.100~Okunuyor...=
+
+	ENUS.UN.8802.102~Deleting...=
+	TRTR.UN.8802.102~Siliniyor...=
+
+	ENUS.UN.8800.100~The selected record is being used by another user. for the time being, you can only view this record. If you want to update this record, try again later.=
+	TRTR.UN.8800.100~Seçilen kayıt bir başka kullanıcı tarafından kullanılıyor. Şimdilik bu kaydı sadece inceleyebilirsiniz. Değişiklik yapmak isterseniz bir süre sonra tekrar deneyiniz.=
+
+	ENUS.UN.8800.101~The selected record cannot be retrieved. It may have been deleted. Please retry after refreshing the list. If the problem persists, please contact your system administrator.=
+	TRTR.UN.8800.101~Seçilen kayıt okunamıyor. Kayıt silinmiş olabilir. Listeyi tazeledikten sonra tekrar deneyiniz. Sorun devam ederse sistem yöneticinize danışınız.=
+
+	ENUS.UN.8801.100~The selected record will be deleted. Do you want to proceed?=
+	TRTR.UN.8801.100~Seçilen kayıt silinecektir. Devam etmek istiyor musunuz?=
+
+	ENUS.UN.8800.107~The selected record cannot be deleted. It may have been deleted by another user. Please retry after refreshing the list. If the problem persists, please contact your system administrator.=
+	TRTR.UN.8800.107~Seçilen kayıt silinemiyor. Kayıt başka bir kullanıcı tarafından silinmiş olabilir. Listeyi tazeledikten sonra tekrar deneyiniz. Sorun devam ederse sistem yöneticinize danışınız.=
+
+	TRTR.UN.0.3000002~Etkin=
+	ENUS.UN.0.3000002~Active=
+
+	TRTR.UN.0.1002~Başlangıç Zamanı=
+	ENUS.UN.0.1002~Start Date=
+
+	TRTR.UN.0.1003~Başlangıç Saati=
+	ENUS.UN.0.1003~Start Time=
+
+	TRTR.UN.0.1004~Bitiş Zamanı=
+	ENUS.UN.0.1004~End Date=
+
+	TRTR.UN.0.1005~Bitiş Saati=
+	ENUS.UN.0.1005~End Time=
+
+	TRTR.UN.0.3000003~Periyodik=
+	ENUS.UN.0.3000003~Periodic=
+
+	TRTR.UN.0.1006~Periyodu=
+	ENUS.UN.0.1006~Period=
+
+	ENUS.UN.12000.101~New=
+	TRTR.UN.12000.101~Ekle=
+
+	ENUS.UN.12000.102~Update=
+	TRTR.UN.12000.102~Değiştir=
+
+	ENUS.UN.12000.103~Delete=
+	TRTR.UN.12000.103~Sil=
+
+	ENUS.UN.12000.104~Copy=
+	TRTR.UN.12000.104~Kopyala=
+
+	ENUS.UN.12000.105~View=
+	TRTR.UN.12000.105~İncele=
+
+	ENUS.UN.12000.107~Info=
+	TRTR.UN.12000.107~Bilgiler=
+
+	ENUS.UN.12000.155~&Select=
+	TRTR.UN.12000.155~&Seç=
+
+	ENUS.UN.12000.153~C&lose=
+	TRTR.UN.12000.153~&Kapat=
+
+	TRTR.UN.0.1~İşlemler=
+
+	ENUS.UN.12000.2~Filters=
+	TRTR.UN.12000.2~Filtreler=
+
+	TRTR.UN.0.3000005~Etkin=
+	ENUS.UN.0.3000005~Active=
+
+	TRTR.UN.0.3000005~Hayır=
+	ENUS.UN.0.3000005~Active=
+
+	TRTR.UN.0.1~Evet=
+	ENUS.UN.0.1~Active=
+
+	TRTR.UN.0.3000006~Başlangıç Zamanı=
+	ENUS.UN.0.3000006~Start Date=
+
+	TRTR.UN.0.3000010~Başlangıç Saati=
+	ENUS.UN.0.3000010~Start Time=
+
+	TRTR.UN.0.3000008~Bitiş Zamanı=
+	ENUS.UN.0.3000008~End Date=
+
+	TRTR.UN.0.3000009~Bitiş Saati=
+	ENUS.UN.0.3000009~End Time=
+
+	TRTR.UN.0.3000011~Periyodik=
+	ENUS.UN.0.3000011~Periodic=
+
+	ENUS.UN.12000.109~Save filter settings=
+	TRTR.UN.12000.109~Filtre değerlerini sakla=
+
+	ENUS.UN.12000.110~Load filter settings=
+	TRTR.UN.12000.110~Filtre değerlerini yükle=
+
+	ENUS.UN.12000.156~&Apply=
+	TRTR.UN.12000.156~&Uygula=
+
+}
+$Forms/CXFSMSAlert.lfrm
+{
+	TRTR.UN.0.10000000~Toplu Sms Gönder=
+	ENUS.UN.0.10000000~Batch Send SMS=
+
+	TRTR.UN.0.1000002~Mesaj Gönder=
+	ENUS.UN.0.1000002~Send SMS=
+
+	TRTR.UN.0.4001~ =
+
+	ENUS.UN.28048.2~Parameters=
+	TRTR.UN.28048.2~Parametreler=
+
+	TRTR.UN.0.6001~Parametre Ekle=
+	ENUS.UN.0.6001~Add Parameter=
+
+	TRTR.UN.0.10000017~SMS Şablonu=
+	ENUS.UN.0.10000017~SMS Template=
+
+	TRTR.UN.0.10000020~Gönderici Kısa Tanımı=
+	ENUS.UN.0.10000020~Sender Brief Definition=
+
+	TRTR.UN.0.10000022~Kalan Kredi=
+	ENUS.UN.0.10000022~Remaining Credit=
+
+	TRTR.UN.0.10000023~Web hizmet ayarları belirtilmemiş=
+	ENUS.UN.0.10000023~Web service account is not described=
+
+	TRTR.UN.0.10000013~Telefon=
+	ENUS.UN.0.10000013~Phone=
+
+	TRTR.UN.0.10000014~T.C. Kimlik No=
+	ENUS.UN.0.10000014~T.R. ID Number=
+
+	TRTR.UN.0.10000015~Alıcı Ünvanı=
+	ENUS.UN.0.10000015~Reciever Title=
+
+	TRTR.UN.0.10000010~Kullanıcı Ekle=
+	ENUS.UN.0.10000010~Add User=
+
+	TRTR.UN.0.10000011~Grup Ekle=
+	ENUS.UN.0.10000011~Add Group=
+
+	TRTR.UN.0.10000012~Numaraları Sil=
+	ENUS.UN.0.10000012~Delete Numbers=
+
+	TRTR.UN.0.10000025~Karakter Sayısı=
+	ENUS.UN.0.10000025~Number of Characters=
+
+	TRTR.UN.0.10000026~Kalan=
+	ENUS.UN.0.10000026~Remaining=
+
+	TRTR.UN.0.10000055~SMS=
+	ENUS.UN.0.10000055~SMS=
+
+	ENUS.UN.12636.3~Start Time:=
+	TRTR.UN.12636.3~Başlangıç Zamanı:=
+
+	TRTR.UN.0.10000057~Period Seç=
+	ENUS.UN.0.10000057~Select Period=
+
+	ENUS.UN.12953.2~Reset=
+	TRTR.UN.12953.2~Sıfırla=
+
+	TRTR.UN.0.10000059~Bitiş Zamanı:=
+	ENUS.UN.0.10000059~End Date=
+
+	TRTR.UN.0.10000066~Zamanlanmış Mesaj=
+	ENUS.UN.0.10000066~Scheduled SMS=
+
+	TRTR.UN.0.10000067~Etkinleştir=
+	ENUS.UN.0.10000067~Active=
+
+	TRTR.UN.0.2000002~Gönderici Bilgileri=
+	ENUS.UN.0.2000002~Sender Information=
+
+	TRTR.UN.0.10000036~Öndeğer=
+	ENUS.UN.0.10000036~Default=
+
+	TRTR.UN.0.10000037~Kullanıcı Adı=
+	ENUS.UN.0.10000037~User Name=
+
+	TRTR.UN.0.10000038~Şifre=
+	ENUS.UN.0.10000038~Password=
+
+	TRTR.UN.0.10000039~Firma Adı=
+	ENUS.UN.0.10000039~Company Name=
+
+	TRTR.UN.0.10000040~Gönderici Kısa Tanımı=
+	ENUS.UN.0.10000040~Sender Brief Definition=
+
+	TRTR.UN.0.10000030~Kısa Mesaj Gönder=
+	ENUS.UN.0.10000030~Send SMS=
+
+	TRTR.UN.0.10000033~Kaydet=
+	ENUS.UN.0.10000033~Save=
+
+	TRTR.UN.0.10000031~Vazgeç=
+	ENUS.UN.0.10000031~Cancel=
+
+	TRTR.UN.0.10000051~Kaydet=
+	ENUS.UN.0.10000051~Save=
+
+	TRTR.UN.0.10000052~Vazgeç=
+	ENUS.UN.0.10000052~Cancel=
+
+}
+$Forms/CXFPersonCardBrowser.lfrm
+{
+	ENUS.HR.12000.1~Records=
+	TRTR.HR.12000.1~Kayıtlar=
+
+	ENUS.HR.8802.100~Retrieving...=
+	TRTR.HR.8802.100~Okunuyor...=
+
+	ENUS.HR.8802.102~Deleting...=
+	TRTR.HR.8802.102~Siliniyor...=
+
+	ENUS.HR.8800.100~The selected record is being used by another user. for the time being, you can only view this record. If you want to update this record, try again later.=
+	TRTR.HR.8800.100~Seçilen kayıt bir başka kullanıcı tarafından kullanılıyor. Şimdilik bu kaydı sadece inceleyebilirsiniz. Değişiklik yapmak isterseniz bir süre sonra tekrar deneyiniz.=
+
+	ENUS.HR.8800.101~The selected record cannot be retrieved. It may have been deleted. Please retry after refreshing the list. If the problem persists, please contact your system administrator.=
+	TRTR.HR.8800.101~Seçilen kayıt okunamıyor. Kayıt silinmiş olabilir. Listeyi tazeledikten sonra tekrar deneyiniz. Sorun devam ederse sistem yöneticinize danışınız.=
+
+	ENUS.HR.8801.100~The selected record will be deleted. Do you want to proceed?=
+	TRTR.HR.8801.100~Seçilen kayıt silinecektir. Devam etmek istiyor musunuz?=
+
+	ENUS.HR.8800.107~The selected record cannot be deleted. It may have been deleted by another user. Please retry after refreshing the list. If the problem persists, please contact your system administrator.=
+	TRTR.HR.8800.107~Seçilen kayıt silinemiyor. Kayıt başka bir kullanıcı tarafından silinmiş olabilir. Listeyi tazeledikten sonra tekrar deneyiniz. Sorun devam ederse sistem yöneticinize danışınız.=
+
+	ENUS.HR.21074.1001~Employee No.=
+	TRTR.HR.21074.1001~Sicil Numarası=
+
+	ENUS.HR.21074.1002~Name=
+	TRTR.HR.21074.1002~Adı=
+
+	ENUS.HR.21074.1003~Surname=
+	TRTR.HR.21074.1003~Soyadı=
+
+	ENUS.HR.12529.9~Position Suitability=
+	TRTR.HR.12529.9~Pozisyon Uygunluğu=
+
+	ENUS.HR.12529.10~Position Risk=
+	TRTR.HR.12529.10~Pozisyon Riski=
+
+	ENUS.HR.21074.1005~Company=
+	TRTR.HR.21074.1005~Kurum=
+
+	ENUS.HR.21074.1006~Department=
+	TRTR.HR.21074.1006~Bölüm=
+
+	ENUS.HR.21074.1007~Division=
+	TRTR.HR.21074.1007~İşyeri=
+
+	ENUS.HR.21074.1020~Unit=
+	TRTR.HR.21074.1020~Birim=
+
+	ENUS.HR.21074.1004~Social Security No.=
+	TRTR.HR.21074.1004~Sosyal Güvenlik Numarası=
+
+	ENUS.HR.21074.1014~Social Security Status=
+	TRTR.HR.21074.1014~Sosyal Güvenlik Statüsü=
+
+	ENUS.HR.21074.1015~Employee Status=
+	TRTR.HR.21074.1015~Personel Statüsü=
+
+	ENUS.HR.21074.1009~Bank Account No.=
+	TRTR.HR.21074.1009~Banka Hesap No=
+
+	ENUS.HR.21074.1010~Date of Employment=
+	TRTR.HR.21074.1010~İşe Giriş Tarihi=
+
+	ENUS.HR.21074.1013~Termination Date=
+	TRTR.HR.21074.1013~İşten Çıkış Tarihi=
+
+	ENUS.HR.21074.1018~Position Code=
+	TRTR.HR.21074.1018~Pozisyon Kodu=
+
+	ENUS.HR.21074.1011~Assignment=
+	TRTR.HR.21074.1011~Pozisyon Açıklaması=
+
+	ENUS.HR.21074.1012~Payroll Code=
+	TRTR.HR.21074.1012~Bordro Kodu=
+
+	ENUS.HR.21074.1016~Status=
+	TRTR.HR.21074.1016~Durumu=
+
+	ENUS.HR.21074.1019~TC  Identification No.=
+	TRTR.HR.21074.1019~TC Kimlik No=
+
+	ENUS.HR.12000.101~New=
+	TRTR.HR.12000.101~Ekle=
+
+	ENUS.HR.12000.102~Update=
+	TRTR.HR.12000.102~Değiştir=
+
+	ENUS.HR.12000.103~Delete=
+	TRTR.HR.12000.103~Sil=
+
+	ENUS.HR.12000.105~View=
+	TRTR.HR.12000.105~İncele=
+
+	ENUS.HR.12305.1~Wage Info=
+	TRTR.HR.12305.1~Ücret Bilgileri=
+
+	ENUS.HR.12305.2~Work Info=
+	TRTR.HR.12305.2~Çalışma Bilgileri=
+
+	ENUS.HR.12305.3~Employee Info=
+	TRTR.HR.12305.3~Özlük Bilgileri=
+
+	ENUS.HR.12000.726~Related Records=
+	TRTR.HR.12000.726~İlişkili Kayıtlar=
+
+	ENUS.HR.12000.107~Information=
+	TRTR.HR.12000.107~Bilgiler=
+
+	ENUS.HR.12000.155~&Select=
+	TRTR.HR.12000.155~&Seç=
+
+	ENUS.HR.12000.153~C&lose=
+	TRTR.HR.12000.153~&Kapat=
+
+	ENUS.HR.12000.2~Filters=
+	TRTR.HR.12000.2~Filtreler=
+
+	ENUS.HR.1008.557~Status=
+	TRTR.HR.1008.557~Durumu=
+
+	ENUS.HR.1008.1~Employee No.=
+	TRTR.HR.1008.1~Sicil Numarası=
+
+	ENUS.HR.1008.2~Name=
+	TRTR.HR.1008.2~Adı=
+
+	ENUS.HR.1008.3~Surname=
+	TRTR.HR.1008.3~Soyadı=
+
+	ENUS.HR.1008.1~Employee No.=
+	TRTR.HR.1008.1~Sicil Numarası=
+
+	ENUS.HR.1008.2~Name=
+	TRTR.HR.1008.2~Adı=
+
+	ENUS.HR.1008.3~Surname=
+	TRTR.HR.1008.3~Soyadı=
+
+	ENUS.HR.1008.4~Company=
+	TRTR.HR.1008.4~Kurum=
+
+	ENUS.HR.1008.5~Department=
+	TRTR.HR.1008.5~Bölüm=
+
+	ENUS.HR.1008.6~Division=
+	TRTR.HR.1008.6~İşyeri=
+
+	ENUS.HR.1008.543~Unit=
+	TRTR.HR.1008.543~Birim=
+
+	ENUS.HR.1008.544~Employee Status=
+	TRTR.HR.1008.544~Personel Statüsü=
+
+	ENUS.HR.1008.36~Social Security Status=
+	TRTR.HR.1008.36~Sosyal Güvenlik Statüsü=
+
+	ENUS.HR.1008.597~Role Appropriateness=
+	TRTR.HR.1008.597~Pozisyon Uygunluğu=
+
+	ENUS.HR.1008.614~Position's Risk=
+	TRTR.HR.1008.614~Pozisyon Riski=
+
+	ENUS.HR.1008.17~Education Status=
+	TRTR.HR.1008.17~Öğrenim Durumu=
+
+	ENUS.HR.1008.56~Title=
+	TRTR.HR.1008.56~Unvanı=
+
+	ENUS.HR.1008.608~Work Type=
+	TRTR.HR.1008.608~Çalışma Tipi=
+
+	ENUS.HR.1008.68~Payment Type=
+	TRTR.HR.1008.68~Ödeme Tipi=
+
+	ENUS.HR.1008.10~Assignment=
+	TRTR.HR.1008.10~Pozisyonu=
+
+	ENUS.HR.1008.46~Wage=
+	TRTR.HR.1008.46~Ücret=
+
+	ENUS.HR.1008.217~Wage Degree=
+	TRTR.HR.1008.217~Maaş Derecesi=
+
+	ENUS.HR.1008.218~Wage Level=
+	TRTR.HR.1008.218~Maaş Kademesi=
+
+	ENUS.HR.1008.221~Retirement Rank=
+	TRTR.HR.1008.221~Emeklilik Derece=
+
+	ENUS.HR.1008.222~Retirement Level=
+	TRTR.HR.1008.222~Emeklilik Kademe=
+
+	ENUS.HR.1008.604~T.R. Identification No.=
+	TRTR.HR.1008.604~T.C. Kimlik Numarası=
+
+	ENUS.HR.1008.612~Penal Status=
+	TRTR.HR.1008.612~Cezai Durumu=
+
+	ENUS.HR.1008.9~Date of Employment=
+	TRTR.HR.1008.9~İşe Giriş Tarihi=
+
+	ENUS.HR.1008.30~Termination Date=
+	TRTR.HR.1008.30~İşten Çıkış Tarihi=
+
+	ENUS.HR.1008.644~Work Status=
+	TRTR.HR.1008.644~Çalışma Statüsü=
+
+	ENUS.HR.12000.109~Save filter settings=
+	TRTR.HR.12000.109~Filtre değerlerini sakla=
+
+	ENUS.HR.12000.110~Load filter settings=
+	TRTR.HR.12000.110~Filtre değerlerini yükle=
+
+	ENUS.HR.12000.156~&Apply=
+	TRTR.HR.12000.156~&Uygula=
+
+}
+$Forms/CXFMobileSubscribersBrowser.lfrm
+{
+	TRTR.UN.0.10063~Mobil Aboneler=
+	ENUS.UN.0.10063~Mobile Subscribers=
+
+	ENUS.UN.12000.1~Records=
+	TRTR.UN.12000.1~Kayıtlar=
+
+	ENUS.UN.8802.100~Retrieving...=
+	TRTR.UN.8802.100~Okunuyor...=
+
+	ENUS.UN.8802.102~Deleting...=
+	TRTR.UN.8802.102~Siliniyor...=
+
+	ENUS.UN.8800.100~The selected record is being used by another user. for the time being, you can only view this record. If you want to update this record, try again later.=
+	TRTR.UN.8800.100~Seçilen kayıt bir başka kullanıcı tarafından kullanılıyor. Şimdilik bu kaydı sadece inceleyebilirsiniz. Değişiklik yapmak isterseniz bir süre sonra tekrar deneyiniz.=
+
+	ENUS.UN.8800.101~The selected record cannot be retrieved. It may have been deleted. Please retry after refreshing the list. If the problem persists, please contact your system administrator.=
+	TRTR.UN.8800.101~Seçilen kayıt okunamıyor. Kayıt silinmiş olabilir. Listeyi tazeledikten sonra tekrar deneyiniz. Sorun devam ederse sistem yöneticinize danışınız.=
+
+	ENUS.UN.8801.100~The selected record will be deleted. Do you want to proceed?=
+	TRTR.UN.8801.100~Seçilen kayıt silinecektir. Devam etmek istiyor musunuz?=
+
+	ENUS.UN.8800.107~The selected record cannot be deleted. It may have been deleted by another user. Please retry after refreshing the list. If the problem persists, please contact your system administrator.=
+	TRTR.UN.8800.107~Seçilen kayıt silinemiyor. Kayıt başka bir kullanıcı tarafından silinmiş olabilir. Listeyi tazeledikten sonra tekrar deneyiniz. Sorun devam ederse sistem yöneticinize danışınız.=
+
+	TRTR.UN.0.1002~Adı=
+	ENUS.UN.0.1002~Name=
+
+	TRTR.UN.0.1003~Soyadı=
+	ENUS.UN.0.1003~Surname=
+
+	TRTR.UN.0.1004~Telefon Numarası=
+	ENUS.UN.0.1004~Mobile Subscribers=
+
+	TRTR.UN.0.1005~T.C. Kimlik No=
+	ENUS.UN.0.1005~Mobile Subscribers=
+
+	TRTR.UN.0.1006~Tipi=
+	ENUS.UN.0.1006~Name=
+
+	ENUS.UN.12000.101~New=
+	TRTR.UN.12000.101~Ekle=
+
+	ENUS.UN.12000.102~Update=
+	TRTR.UN.12000.102~Değiştir=
+
+	ENUS.UN.12000.103~Delete=
+	TRTR.UN.12000.103~Sil=
+
+	ENUS.UN.12000.104~Copy=
+	TRTR.UN.12000.104~Kopyala=
+
+	ENUS.UN.12000.105~View=
+	TRTR.UN.12000.105~İncele=
+
+	ENUS.UN.12000.107~Info=
+	TRTR.UN.12000.107~Bilgiler=
+
+	ENUS.UN.12000.155~&Select=
+	TRTR.UN.12000.155~&Seç=
+
+	ENUS.UN.12000.153~C&lose=
+	TRTR.UN.12000.153~&Kapat=
+
+	ENUS.UN.12000.2~Filters=
+	TRTR.UN.12000.2~Filtreler=
+
+	TRTR.UN.0.10057~Adı=
+	ENUS.UN.0.10057~Name=
+
+	TRTR.UN.0.10058~Soyadı=
+	ENUS.UN.0.10058~Surname=
+
+	TRTR.UN.0.10061~Telefon Numarası=
+	ENUS.UN.0.10061~Phone Number=
+
+	TRTR.UN.0.10062~T.C. Kimlik No=
+	ENUS.UN.0.10062~T.R. Identification No=
+
+	TRTR.UN.0.3000002~Tipi=
+	ENUS.UN.0.3000002~Type=
+
+	ENUS.UN.12000.109~Save filter settings=
+	TRTR.UN.12000.109~Filtre değerlerini sakla=
+
+	ENUS.UN.12000.110~Load filter settings=
+	TRTR.UN.12000.110~Filtre değerlerini yükle=
+
+	ENUS.UN.12000.156~&Apply=
+	TRTR.UN.12000.156~&Uygula=
+
+}
+$Forms/CXFMobileSubscriberGroupsBrowser.lfrm
+{
+	TRTR.UN.0.10063~Mobil Abone Grupları=
+	ENUS.UN.0.10063~Mobile Subscriber Groups=
+
+	ENUS.UN.12000.1~Records=
+	TRTR.UN.12000.1~Kayıtlar=
+
+	ENUS.UN.8802.100~Retrieving...=
+	TRTR.UN.8802.100~Okunuyor...=
+
+	ENUS.UN.8802.102~Deleting...=
+	TRTR.UN.8802.102~Siliniyor...=
+
+	ENUS.UN.8800.100~The selected record is being used by another user. for the time being, you can only view this record. If you want to update this record, try again later.=
+	TRTR.UN.8800.100~Seçilen kayıt bir başka kullanıcı tarafından kullanılıyor. Şimdilik bu kaydı sadece inceleyebilirsiniz. Değişiklik yapmak isterseniz bir süre sonra tekrar deneyiniz.=
+
+	ENUS.UN.8800.101~The selected record cannot be retrieved. It may have been deleted. Please retry after refreshing the list. If the problem persists, please contact your system administrator.=
+	TRTR.UN.8800.101~Seçilen kayıt okunamıyor. Kayıt silinmiş olabilir. Listeyi tazeledikten sonra tekrar deneyiniz. Sorun devam ederse sistem yöneticinize danışınız.=
+
+	ENUS.UN.8801.100~The selected record will be deleted. Do you want to proceed?=
+	TRTR.UN.8801.100~Seçilen kayıt silinecektir. Devam etmek istiyor musunuz?=
+
+	ENUS.UN.8800.107~The selected record cannot be deleted. It may have been deleted by another user. Please retry after refreshing the list. If the problem persists, please contact your system administrator.=
+	TRTR.UN.8800.107~Seçilen kayıt silinemiyor. Kayıt başka bir kullanıcı tarafından silinmiş olabilir. Listeyi tazeledikten sonra tekrar deneyiniz. Sorun devam ederse sistem yöneticinize danışınız.=
+
+	TRTR.UN.0.1002~Kod=
+	ENUS.UN.0.1002~Code=
+
+	TRTR.UN.0.1003~Açıklama=
+	ENUS.UN.0.1003~Description=
+
+	ENUS.UN.12000.101~New=
+	TRTR.UN.12000.101~Ekle=
+
+	ENUS.UN.12000.102~Update=
+	TRTR.UN.12000.102~Değiştir=
+
+	ENUS.UN.12000.103~Delete=
+	TRTR.UN.12000.103~Sil=
+
+	ENUS.UN.12000.104~Copy=
+	TRTR.UN.12000.104~Kopyala=
+
+	ENUS.UN.12000.105~View=
+	TRTR.UN.12000.105~İncele=
+
+	ENUS.UN.12000.107~Info=
+	TRTR.UN.12000.107~Bilgiler=
+
+	ENUS.UN.12000.155~&Select=
+	TRTR.UN.12000.155~&Seç=
+
+	ENUS.UN.12000.153~C&lose=
+	TRTR.UN.12000.153~&Kapat=
+
+	ENUS.UN.12000.2~Filters=
+	TRTR.UN.12000.2~Filtreler=
+
+	TRTR.UN.0.10057~Kod=
+	ENUS.UN.0.10057~Code=
+
+	TRTR.UN.0.10058~Açıklama=
+	ENUS.UN.0.10058~Description=
+
+	ENUS.UN.12000.109~Save filter settings=
+	TRTR.UN.12000.109~Filtre değerlerini sakla=
+
+	ENUS.UN.12000.110~Load filter settings=
+	TRTR.UN.12000.110~Filtre değerlerini yükle=
+
+	ENUS.UN.12000.156~&Apply=
+	TRTR.UN.12000.156~&Uygula=
+
+}
+$Forms/CXFMobileSubscriberGroup.lfrm
+{
+	ENUS.UN.8800.113~A record with these properties already exists.=
+	TRTR.UN.8800.113~Aynı özelliklerde başka kayıt var.=
+
+	ENUS.UN.8800.114~Could not save the record. If the problem persists, please contact your system administrator.=
+	TRTR.UN.8800.114~Kaydedilemedi. Sorun devam ederse sistem yöneticinize danışınız.=
+
+	ENUS.UN.8802.101~Saving...=
+	TRTR.UN.8802.101~Kaydediliyor...=
+
+	TRTR.UN.0.1000046~Mobil Abone Grubu=
+	ENUS.UN.0.1000046~Mobile Subscriber Group=
+
+	ENUS.UN.21141.47~null=
+	TRTR.UN.21141.47~null=
+
+	TRTR.UN.0.1000001~Kod=
+	ENUS.UN.0.1000001~Mobile Subscriber Group=
+
+	ENUS.UN.21141.48~null=
+	TRTR.UN.21141.48~null=
+
+	TRTR.UN.0.1000003~Açıklama=
+	ENUS.UN.0.1000003~Mobile Subscriber Group=
+
+	TRTR.UN.0.3000009~Abone Adı=
+	ENUS.UN.0.3000009~Mobile Subscriber Group=
+
+	TRTR.UN.0.3000010~Soyadı=
+	ENUS.UN.0.3000010~Mobile Subscriber Group=
+
+	TRTR.UN.0.3000011~Telefon Numarası=
+	ENUS.UN.0.3000011~Mobile Subscriber Group=
+
+}
+$Forms/CXFMobileSubscriber.lfrm
+{
+	ENUS.UN.8800.113~A record with these properties already exists.=
+	TRTR.UN.8800.113~Aynı özelliklerde başka kayıt var.=
+
+	ENUS.UN.8800.114~Could not save the record. If the problem persists, please contact your system administrator.=
+	TRTR.UN.8800.114~Kaydedilemedi. Sorun devam ederse sistem yöneticinize danışınız.=
+
+	ENUS.UN.8802.101~Saving...=
+	TRTR.UN.8802.101~Kaydediliyor...=
+
+	TRTR.UN.0.1000046~Mobil Abone=
+	ENUS.UN.0.1000046~Mobile Subscriber=
+
+	TRTR.UN.0.1000001~Tipi=
+	ENUS.UN.0.1000001~Type=
+
+	TRTR.UN.0.1000002~Kullanıcılar=
+	ENUS.UN.0.1000002~Mobile Subscriber=
+
+	TRTR.UN.500005.7~Cari Kodu=
+
+	TRTR.UN.500005.7~Cari Kodu=
+
+	TRTR.UN.500005.7~Cari Kodu=
+
+	TRTR.UN.0.1000006~Personel Sicil No=
+	ENUS.UN.0.1000006~Mobile Subscriber=
+
+	TRTR.UN.0.19~Personel Sicil No=
+	ENUS.UN.0.19~Mobile Subscriber=
+
+	TRTR.UN.0.19~Personel Sicil No=
+	ENUS.UN.0.19~Mobile Subscriber=
+
+	TRTR.UN.0.1000003~Adı=
+	ENUS.UN.0.1000003~Mobile Subscriber=
+
+	TRTR.UN.0.1000005~Soyadı=
+	ENUS.UN.0.1000005~Mobile Subscriber=
+
+	TRTR.UN.0.1000007~Telefon No=
+	ENUS.UN.0.1000007~Mobile Subscriber=
+
+	TRTR.UN.0.3000003~T.C. Kimlik=
+	ENUS.UN.0.3000003~Mobile Subscriber=
+
+	TRTR.UN.0.400~Kaydet=
+	ENUS.UN.0.400~Save=
+
+	TRTR.UN.0.500~Vazgeç=
+	ENUS.UN.0.500~Cancel=
+
+}
+$Forms/CXFMessageTemplatesBrowser.lfrm
+{
+	TRTR.UN.0.10063~Mesaj Şablonları=
+	ENUS.UN.0.10063~Message Templates=
+
+	ENUS.UN.12000.1~Records=
+	TRTR.UN.12000.1~Kayıtlar=
+
+	ENUS.UN.8802.100~Retrieving...=
+	TRTR.UN.8802.100~Okunuyor...=
+
+	ENUS.UN.8802.102~Deleting...=
+	TRTR.UN.8802.102~Siliniyor...=
+
+	ENUS.UN.8800.100~The selected record is being used by another user. for the time being, you can only view this record. If you want to update this record, try again later.=
+	TRTR.UN.8800.100~Seçilen kayıt bir başka kullanıcı tarafından kullanılıyor. Şimdilik bu kaydı sadece inceleyebilirsiniz. Değişiklik yapmak isterseniz bir süre sonra tekrar deneyiniz.=
+
+	ENUS.UN.8800.101~The selected record cannot be retrieved. It may have been deleted. Please retry after refreshing the list. If the problem persists, please contact your system administrator.=
+	TRTR.UN.8800.101~Seçilen kayıt okunamıyor. Kayıt silinmiş olabilir. Listeyi tazeledikten sonra tekrar deneyiniz. Sorun devam ederse sistem yöneticinize danışınız.=
+
+	ENUS.UN.8801.100~The selected record will be deleted. Do you want to proceed?=
+	TRTR.UN.8801.100~Seçilen kayıt silinecektir. Devam etmek istiyor musunuz?=
+
+	ENUS.UN.8800.107~The selected record cannot be deleted. It may have been deleted by another user. Please retry after refreshing the list. If the problem persists, please contact your system administrator.=
+	TRTR.UN.8800.107~Seçilen kayıt silinemiyor. Kayıt başka bir kullanıcı tarafından silinmiş olabilir. Listeyi tazeledikten sonra tekrar deneyiniz. Sorun devam ederse sistem yöneticinize danışınız.=
+
+	TRTR.UN.0.1002~Kod=
+	ENUS.UN.0.1002~Message Templates=
+
+	TRTR.UN.0.1003~Açıklama=
+	ENUS.UN.0.1003~Message Templates=
+
+	TRTR.UN.0.1004~Mesaj=
+	ENUS.UN.0.1004~Message Templates=
+
+	ENUS.UN.12000.101~New=
+	TRTR.UN.12000.101~Ekle=
+
+	ENUS.UN.12000.102~Update=
+	TRTR.UN.12000.102~Değiştir=
+
+	ENUS.UN.12000.103~Delete=
+	TRTR.UN.12000.103~Sil=
+
+	ENUS.UN.12000.104~Copy=
+	TRTR.UN.12000.104~Kopyala=
+
+	ENUS.UN.12000.105~View=
+	TRTR.UN.12000.105~İncele=
+
+	ENUS.UN.12000.107~Info=
+	TRTR.UN.12000.107~Bilgiler=
+
+	ENUS.UN.12000.155~&Select=
+	TRTR.UN.12000.155~&Seç=
+
+	ENUS.UN.12000.153~C&lose=
+	TRTR.UN.12000.153~&Kapat=
+
+	ENUS.UN.12000.2~Filters=
+	TRTR.UN.12000.2~Filtreler=
+
+	TRTR.UN.0.10057~Kod=
+	ENUS.UN.0.10057~Code=
+
+	TRTR.UN.0.10058~Açıklama=
+	ENUS.UN.0.10058~Description=
+
+	TRTR.UN.0.3000002~Mesaj=
+	ENUS.UN.0.3000002~Message=
+
+	ENUS.UN.12000.109~Save filter settings=
+	TRTR.UN.12000.109~Filtre değerlerini sakla=
+
+	ENUS.UN.12000.110~Load filter settings=
+	TRTR.UN.12000.110~Filtre değerlerini yükle=
+
+	ENUS.UN.12000.156~&Apply=
+	TRTR.UN.12000.156~&Uygula=
+
+}
+$Forms/CXFMessageTemplate.lfrm
+{
+	ENUS.UN.8800.113~A record with these properties already exists.=
+	TRTR.UN.8800.113~Aynı özelliklerde başka kayıt var.=
+
+	ENUS.UN.8800.114~Could not save the record. If the problem persists, please contact your system administrator.=
+	TRTR.UN.8800.114~Kaydedilemedi. Sorun devam ederse sistem yöneticinize danışınız.=
+
+	ENUS.UN.8802.101~Saving...=
+	TRTR.UN.8802.101~Kaydediliyor...=
+
+	TRTR.UN.0.1000046~Mesaj Şablonu=
+	ENUS.UN.0.1000046~Message Template=
+
+	TRTR.UN.0.1000046~Kaydedilemedi. Sorun devam ederse sistem yöneticinize danışınız.=
+	ENUS.UN.0.1000046~Message Template=
+
+	TRTR.UN.0.1000046~Aynı özelliklerde başka kayıt var.=
+	ENUS.UN.0.1000046~Message Template=
+
+	TRTR.UN.0.1000046~Kaydediliyor...=
+	ENUS.UN.0.1000046~Message Template=
+
+	ENUS.UN.21141.48~null=
+	TRTR.UN.21141.48~null=
+
+	TRTR.UN.0.1000003~Kod=
+	ENUS.UN.0.1000003~Message Template=
+
+	TRTR.UN.0.1000005~Açıklama=
+	ENUS.UN.0.1000005~Message Template=
+
+	TRTR.UN.0.3000001~Mesaj=
+	ENUS.UN.0.3000001~Message Template=
+
+	TRTR.UN.0.3000003~Parametre Ekle=
+	ENUS.UN.0.3000003~Message Template=
+
+	TRTR.UN.0.3000004~Parametreler=
+	ENUS.UN.0.3000004~Message Template=
+
+}
+$Forms/CXFARPCardBrowser.lfrm
+{
+	ENUS.UN.18177.14~Accounts Receivable & Payable=
+	TRTR.UN.18177.14~Cari Hesaplar=
+
+	ENUS.UN.8802.100~Retrieving...=
+	TRTR.UN.8802.100~Okunuyor...=
+
+	ENUS.UN.8802.102~Deleting...=
+	TRTR.UN.8802.102~Siliniyor...=
+
+	ENUS.UN.8800.100~The selected record is being used by another user. for the time being, you can only view this record. If you want to update this record, try again later.=
+	TRTR.UN.8800.100~Seçilen kayıt bir başka kullanıcı tarafından kullanılıyor. Şimdilik bu kaydı sadece inceleyebilirsiniz. Değişiklik yapmak isterseniz bir süre sonra tekrar deneyiniz.=
+
+	ENUS.UN.8800.101~The selected record cannot be retrieved. It may have been deleted. Please retry after refreshing the list. If the problem persists, please contact your system administrator.=
+	TRTR.UN.8800.101~Seçilen kayıt okunamıyor. Kayıt silinmiş olabilir. Listeyi tazeledikten sonra tekrar deneyiniz. Sorun devam ederse sistem yöneticinize danışınız.=
+
+	ENUS.UN.8801.100~The selected record will be deleted. Do you want to proceed?=
+	TRTR.UN.8801.100~Seçilen kayıt silinecektir. Devam etmek istiyor musunuz?=
+
+	ENUS.UN.8800.107~The selected record cannot be deleted. It may have been deleted by another user. Please retry after refreshing the list. If the problem persists, please contact your system administrator.=
+	TRTR.UN.8800.107~Seçilen kayıt silinemiyor. Kayıt başka bir kullanıcı tarafından silinmiş olabilir. Listeyi tazeledikten sonra tekrar deneyiniz. Sorun devam ederse sistem yöneticinize danışınız.=
+
+	ENUS.UN.12000.1~Records=
+	TRTR.UN.12000.1~Kayıtlar=
+
+	ENUS.UN.12000.601~Retrieving...=
+	TRTR.UN.12000.601~Okunuyor...=
+
+	ENUS.UN.12000.603~Deleting...=
+	TRTR.UN.12000.603~Siliniyor...=
+
+	ENUS.UN.12000.604~This record is currently being used by another user.=
+	TRTR.UN.12000.604~Seçilen kayıt başka kullanıcılar tarafından kullanılıyor.=
+
+	ENUS.UN.12000.607~Delete this record?=
+	TRTR.UN.12000.607~Kayıt silinecektir. Devam etmek istiyor musunuz?=
+
+	ENUS.UN.8800.101~The selected record cannot be retrieved. It may have been deleted. Please retry after refreshing the list. If the problem persists, please contact your system administrator.=
+	TRTR.UN.8800.101~Seçilen kayıt okunamıyor. Kayıt silinmiş olabilir. Listeyi tazeledikten sonra tekrar deneyiniz. Sorun devam ederse sistem yöneticinize danışınız.=
+
+	ENUS.UN.8800.107~The selected record cannot be deleted. It may have been deleted by another user. Please retry after refreshing the list. If the problem persists, please contact your system administrator.=
+	TRTR.UN.8800.107~Seçilen kayıt silinemiyor. Kayıt başka bir kullanıcı tarafından silinmiş olabilir. Listeyi tazeledikten sonra tekrar deneyiniz. Sorun devam ederse sistem yöneticinize danışınız.=
+
+	ENUS.UN.12067.1~Code=
+	TRTR.UN.12067.1~Kod=
+
+	ENUS.UN.18177.1002~Title=
+	TRTR.UN.18177.1002~Unvan=
+
+	ENUS.UN.18177.1002~Title=
+	TRTR.UN.18177.1002~Unvan=
+
+	ENUS.UN.18177.1014~Search Text=
+	TRTR.UN.18177.1014~Arama Metni=
+
+	ENUS.UN.18177.1003~Balance=
+	TRTR.UN.18177.1003~Bakiye=
+
+	ENUS.UN.12000.301~Org. Unit=
+	TRTR.UN.12000.301~Organizasyonel Birim=
+
+	ENUS.UN.18177.1006~City=
+	TRTR.UN.18177.1006~İl=
+
+	ENUS.UN.18177.1007~Country=
+	TRTR.UN.18177.1007~Ülke=
+
+	ENUS.UN.18177.1005~Balance (RC)=
+	TRTR.UN.18177.1005~Bakiye (RPB)=
+
+	ENUS.UN.18177.1010~Balance (Subsidiaries)=
+	TRTR.UN.18177.1010~Bakiye (Bağlı Kurumlar)=
+
+	ENUS.UN.18177.1011~Balance (RC, Subsidiaries)=
+	TRTR.UN.18177.1011~Bakiye (RPB, Bağlı Kurumlar)=
+
+	ENUS.UN.18177.1015~Aux. Code=
+	TRTR.UN.18177.1015~Özel Kod=
+
+	ENUS.UN.18177.1016~Trading Group=
+	TRTR.UN.18177.1016~Ticari İşlem Grubu=
+
+	ENUS.UN.12000.101~New=
+	TRTR.UN.12000.101~Ekle=
+
+	ENUS.UN.12000.102~Update=
+	TRTR.UN.12000.102~Değiştir=
+
+	ENUS.UN.12000.103~Delete=
+	TRTR.UN.12000.103~Sil=
+
+	ENUS.UN.12000.104~Copy=
+	TRTR.UN.12000.104~Kopyala=
+
+	ENUS.UN.12000.105~View=
+	TRTR.UN.12000.105~İncele=
+
+	ENUS.UN.12000.3~Print=
+	TRTR.UN.12000.3~Gönder=
+
+	ENUS.UN.12000.106~Attached Records=
+	TRTR.UN.12000.106~Bağlı Kayıtlar=
+
+	ENUS.UN.8804.113~Related Records=
+	TRTR.UN.8804.113~İlişkili Kayıtlar=
+
+	ENUS.UN.12000.107~Info=
+	TRTR.UN.12000.107~Bilgiler=
+
+	ENUS.UN.12000.155~&Select=
+	TRTR.UN.12000.155~&Seç=
+
+	ENUS.UN.12000.153~C&lose=
+	TRTR.UN.12000.153~&Kapat=
+
+	ENUS.UN.12000.2~Filters=
+	TRTR.UN.12000.2~Filtreler=
+
+	ENUS.UN.12000.109~Save filter settings=
+	TRTR.UN.12000.109~Filtre değerlerini sakla=
+
+	ENUS.UN.12000.110~Load filter settings=
+	TRTR.UN.12000.110~Filtre değerlerini yükle=
+
+	ENUS.UN.12000.156~&Apply=
+	TRTR.UN.12000.156~&Uygula=
+
+}

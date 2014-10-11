@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XUIForm Tag="1000046" Title="Mobil Abone Grubu" XUIDoc="Mobile Subscriber" UniqueID="MobileSubscriberGroup" CustomizationEventHandler="com.acme.customization.forms.CXEMobileSubscriberGroup">
+	<Property Resizable="FALSE" />
+	<Property DBAuthorizationID="0" />
+	<Property StatusBarSections="(message 60)(message 20)(message 0)" />
+	<Property MessageIndex="2" />
+	<Property Cols="5.0, P, 81.0, F" />
+	<Property Rows="5.0, P, 0.0, 11.0, 172.0, P" />
+	<Property CustFormWidth="530" />
+	<Property CustFormHeight="347" />
+	<Property CustModal="FALSE" />
+	<Property BorderType="NONE" />
+	<Property FormVersion="TABLELAYOUT" />
+	<Property Message_DuplicateFailure="Aynı özelliklerde başka kayıt var." />
+	<Property Message_SaveFailure="Kaydedilemedi. Sorun devam ederse sistem yöneticinize danışınız." />
+	<Property Message_DataSave="Kaydediliyor..." />
+	<Property ObjectClass="com.lbs.data.objects.CustomBusinessObject" />
+	<Property ExtensionClass="CBOMblInfoGroup" />
+	<CustEvent onInitialize="onInitialize" />
+	<Resource Property="Message_DuplicateFailure" ListID="8800" StringTag="113"/>
+	<Resource Property="Message_SaveFailure" ListID="8800" StringTag="114"/>
+	<Resource Property="Message_DataSave" ListID="8802" StringTag="101"/>
+	<Resource Property="Title" ListID="0" StringTag="0" ResourceType="INLINE">
+		<InlineData>
+			<InlineItem Language="TRTR" Value="Mobil Abone Grubu"/>
+			<InlineItem Language="ENUS" Value="Mobile Subscriber Group"/>
+		</InlineData>
+	</Resource>
+	<Group Tag="250">
+		<Property Anchors="L-R-T" />
+		<Property Cols="5.0, 76.0, 124.0, 35.0, 116.0, 123.0" />
+		<Property Rows="8.0, P, 31.0, 0.0, 0.0, 0.0, 6.0" />
+		<Property Col1="1" />
+		<Property Col2="3" />
+		<Property Row1="1" />
+		<Property Row2="1" />
+		<Property BevelType="GROUP" />
+		<Control Type="LABEL" Tag="1000001" Title="Kod">
+			<Property Col1="1" />
+			<Property Col2="1" />
+			<Property Row1="1" />
+			<Property Row2="1" />
+			<Property Anchors="L-T" />
+			<Resource Property="Title" ListID="21141" StringTag="47"/>
+			<Resource Property="Title" ListID="0" StringTag="0" ResourceType="INLINE">
+				<InlineData>
+					<InlineItem Language="TRTR" Value="Kod"/>
+					<InlineItem Language="ENUS" Value="Code"/>
+				</InlineData>
+			</Resource>
+		</Control>
+		<Control Type="LABEL" Tag="1000003" Title="Açıklama">
+			<Property Col1="1" />
+			<Property Col2="1" />
+			<Property Row1="2" />
+			<Property Row2="2" />
+			<Property Anchors="L-T" />
+			<Resource Property="Title" ListID="21141" StringTag="48"/>
+			<Resource Property="Title" ListID="0" StringTag="0" ResourceType="INLINE">
+				<InlineData>
+					<InlineItem Language="TRTR" Value="Açıklama"/>
+					<InlineItem Language="ENUS" Value="Description"/>
+				</InlineData>
+			</Resource>
+		</Control>
+		<Control Type="TEXTEDIT" LabelTag="1000001" Tag="3000012" Title="Kod">
+			<Property Col1="2" />
+			<Property Col2="4" />
+			<Property Row1="1" />
+			<Property Row2="1" />
+			<Property Anchors="L-T" />
+			<Property MaxLength="25" />
+			<Property VisibleLength="30" />
+			<Property DataField="Code" />
+			<Property Status="MANDATORY" />
+		</Control>
+		<Control Type="TEXTEDIT" Tag="3000013">
+			<Property Col1="2" />
+			<Property Col2="5" />
+			<Property Row1="2" />
+			<Property Row2="2" />
+			<Property Anchors="L-T" />
+			<Property VisibleLength="50" />
+			<Property DataField="Name" />
+			<Property MaxLength="51" />
+		</Control>
+	</Group>
+	<Pane Tag="3000000">
+		<Property Anchors="R-B" />
+		<Property ContainerHMargin="0" />
+		<Property ContainerVMargin="0" />
+		<Property BorderType="NONE" />
+		<Property Cols="0.0, 73.0, 69.0" />
+		<Property Rows="0.0, P" />
+		<Property Col1="2" />
+		<Property Col2="3" />
+		<Property Row1="5" />
+		<Property Row2="5" />
+		<Control Type="BUTTON" Tag="400" Title="&amp;Kaydet">
+			<Property Anchors="R-B" />
+			<Property Attribute="SAVECLOSE" />
+			<Property Col1="0" />
+			<Property Col2="1" />
+			<Property Row1="0" />
+			<Property Row2="1" />
+			<Property Size="67,21" />
+			<Resource Property="Title" ListID="0" StringTag="0" ResourceType="INLINE">
+				<InlineData>
+					<InlineItem Language="TRTR" Value="&amp;Kaydet"/>
+					<InlineItem Language="ENUS" Value="&amp;Save"/>
+				</InlineData>
+			</Resource>
+		</Control>
+		<Control Type="BUTTON" Tag="500" Title="&amp;Vazgeç">
+			<Property Anchors="R-B" />
+			<Property Attribute="CLOSE" />
+			<Property Col1="2" />
+			<Property Col2="2" />
+			<Property Row1="1" />
+			<Property Row2="1" />
+			<Property Size="67,21" />
+			<Resource Property="Title" ListID="0" StringTag="0" ResourceType="INLINE">
+				<InlineData>
+					<InlineItem Language="TRTR" Value="&amp;Vazgeç"/>
+					<InlineItem Language="ENUS" Value="&amp;Cancel"/>
+				</InlineData>
+			</Resource>
+		</Control>
+	</Pane>
+	<Group Tag="3000007" Title="">
+		<Property Cols="481.0" />
+		<Property Rows="156.0" />
+		<Property Col1="1" />
+		<Property Col2="3" />
+		<Property Row1="4" />
+		<Property Row2="4" />
+		<Property Anchors="L-R-T-B" />
+		<Property BevelType="GROUP" />
+		<EditGrid Tag="3000008">
+			<Property Col1="0" />
+			<Property Col2="0" />
+			<Property Row1="0" />
+			<Property Row2="0" />
+			<Property Anchors="L-T" />
+			<Property Size="500,300" />
+			<Property DataField="MblInfoUsrGrpLnsLink" />
+			<Property ObjectClass="com.lbs.data.objects.CustomBusinessObject" />
+			<Property ExtensionClass="CBOMblInfoUsrGrpLn" />
+			<CustEvent onGridLookup="onGridLookup" />
+			<CustEvent onGridRowInserted="onGridRowInserted" />
+			<Control Type="COLUMN" Tag="3000009" Title="Abone Adı">
+				<Property Editable="TRUE" />
+				<Property DispZero="FALSE" />
+				<Property HasDecimals="FALSE" />
+				<Property HasLookup="TRUE" />
+				<Property SignedNumber="FALSE" />
+				<Property ColumnWidth="110" />
+				<Property DataField="MblInfoUserLink.Name" />
+				<Resource Property="Title" ListID="0" StringTag="0" ResourceType="INLINE">
+					<InlineData>
+						<InlineItem Language="TRTR" Value="Abone Adı"/>
+						<InlineItem Language="ENUS" Value="Subscriber Name"/>
+					</InlineData>
+				</Resource>
+			</Control>
+			<Control Type="COLUMN" Tag="3000010" Title="Soyadı">
+				<Property Editable="TRUE" />
+				<Property DispZero="FALSE" />
+				<Property HasDecimals="FALSE" />
+				<Property HasLookup="TRUE" />
+				<Property SignedNumber="FALSE" />
+				<Property ColumnWidth="140" />
+				<Property DataField="MblInfoUserLink.SurName" />
+				<Resource Property="Title" ListID="0" StringTag="0" ResourceType="INLINE">
+					<InlineData>
+						<InlineItem Language="TRTR" Value="Soyadı"/>
+						<InlineItem Language="ENUS" Value="Surname"/>
+					</InlineData>
+				</Resource>
+			</Control>
+			<Control Type="COLUMN" Tag="3000011" Title="Telefon">
+				<Property Editable="TRUE" />
+				<Property DispZero="FALSE" />
+				<Property HasDecimals="FALSE" />
+				<Property HasLookup="TRUE" />
+				<Property SignedNumber="FALSE" />
+				<Property ColumnWidth="110" />
+				<Property DataField="MblInfoUserLink.Phonenumber" />
+				<Resource Property="Title" ListID="0" StringTag="0" ResourceType="INLINE">
+					<InlineData>
+						<InlineItem Language="TRTR" Value="Telefon"/>
+						<InlineItem Language="ENUS" Value="Phone Number"/>
+					</InlineData>
+				</Resource>
+			</Control>
+			<Action Context="LOOKUP" Param="3000009">
+				<Command Name="LOOKUP">
+					<Parameter Value="Forms/CXFMobileSubscribersBrowser.lfrm" />
+					<Parameter Value="default" />
+					<Parameter Value="default" />
+					<Parameter Value="default" />
+					<Parameter Value="none" />
+					<Parameter Value="none" />
+					<Parameter>
+						<PropertySet Value="(MBLINFUSER_REF MblinfuserReference)" />
+						<PropertySet Value="(MBLINFUSER_NAME MblInfoUserLink.Name)" />
+						<PropertySet Value="(MBLINFUSER_SURNAME MblInfoUserLink.SurName)" />
+						<PropertySet Value="(MBLINFUSER_PHONENUMBER MblInfoUserLink.Phonenumber)" />
+					</Parameter>
+				</Command>
+				<Command Name="RESET" Parameters="CTRL_3000008"/>
+			</Action>
+			<Action Context="LOOKUP" Param="3000010">
+				<Command Name="LOOKUP">
+					<Parameter Value="Forms/CXFMobileSubscribersBrowser.lfrm" />
+					<Parameter Value="default" />
+					<Parameter Value="default" />
+					<Parameter Value="default" />
+					<Parameter Value="none" />
+					<Parameter Value="none" />
+					<Parameter>
+						<PropertySet Value="(MBLINFUSER_REF MblinfuserReference)" />
+						<PropertySet Value="(MBLINFUSER_NAME MblInfoUserLink.Name)" />
+						<PropertySet Value="(MBLINFUSER_SURNAME MblInfoUserLink.SurName)" />
+						<PropertySet Value="(MBLINFUSER_PHONENUMBER MblInfoUserLink.Phonenumber)" />
+					</Parameter>
+				</Command>
+				<Command Name="RESET" Parameters="CTRL_3000008"/>
+			</Action>
+			<Action Context="LOOKUP" Param="3000011">
+				<Command Name="LOOKUP">
+					<Parameter Value="Forms/CXFMobileSubscribersBrowser.lfrm" />
+					<Parameter Value="default" />
+					<Parameter Value="default" />
+					<Parameter Value="default" />
+					<Parameter Value="none" />
+					<Parameter Value="none" />
+					<Parameter>
+						<PropertySet Value="(MBLINFUSER_REF MblinfuserReference)" />
+						<PropertySet Value="(MBLINFUSER_NAME MblInfoUserLink.Name)" />
+						<PropertySet Value="(MBLINFUSER_SURNAME MblInfoUserLink.SurName)" />
+						<PropertySet Value="(MBLINFUSER_PHONENUMBER MblInfoUserLink.Phonenumber)" />
+					</Parameter>
+				</Command>
+			</Action>
+			<Action Context="CONTROLVERIFY" Param="3000009">
+				<Command Name="SEARCH">
+					<Parameter Value="CQOMobileSubscribersBrowser" />
+					<Parameter Value="none" />
+					<Parameter Value="(T_NAME)" />
+					<Parameter Value="($P_NAME CTRL_3000008)" />
+					<Parameter>
+						<PropertySet Value="(MBLINFUSER_REF MblinfuserReference)" />
+						<PropertySet Value="(MBLINFUSER_NAME MblInfoUserLink.Name)" />
+						<PropertySet Value="(MBLINFUSER_SURNAME MblInfoUserLink.SurName)" />
+						<PropertySet Value="(MBLINFUSER_PHONENUMBER MblInfoUserLink.Phonenumber)" />
+					</Parameter>
+				</Command>
+			</Action>
+			<Action Context="CONTROLVERIFY" Param="3000010">
+				<Command Name="SEARCH">
+					<Parameter Value="CQOMobileSubscribersBrowser" />
+					<Parameter Value="none" />
+					<Parameter Value="(T_SURNAME)" />
+					<Parameter Value="($P_SURNAME CTRL_3000008)" />
+					<Parameter>
+						<PropertySet Value="(MBLINFUSER_REF MblinfuserReference)" />
+						<PropertySet Value="(MBLINFUSER_NAME MblInfoUserLink.Name)" />
+						<PropertySet Value="(MBLINFUSER_SURNAME MblInfoUserLink.SurName)" />
+						<PropertySet Value="(MBLINFUSER_PHONENUMBER MblInfoUserLink.Phonenumber)" />
+					</Parameter>
+				</Command>
+			</Action>
+			<Action Context="CONTROLVERIFY" Param="3000011">
+				<Command Name="SEARCH">
+					<Parameter Value="CQOMobileSubscribersBrowser" />
+					<Parameter Value="none" />
+					<Parameter Value="(T_PHONENUM)" />
+					<Parameter Value="($P_PHONENUM CTRL_3000008)" />
+					<Parameter>
+						<PropertySet Value="(MBLINFUSER_REF MblinfuserReference)" />
+						<PropertySet Value="(MBLINFUSER_NAME MblInfoUserLink.Name)" />
+						<PropertySet Value="(MBLINFUSER_SURNAME MblInfoUserLink.SurName)" />
+						<PropertySet Value="(MBLINFUSER_PHONENUMBER MblInfoUserLink.Phonenumber)" />
+					</Parameter>
+				</Command>
+			</Action>
+		</EditGrid>
+	</Group>
+	<TaggedList ListID="2001"/>
+	<TaggedList ListID="2002"/>
+	<TaggedList ListID="12302"/>
+	<TaggedList ListID="12309"/>
+	<TaggedList ListID="12310"/>
+	<TaggedList ListID="12320"/>
+	<TaggedList ListID="1309"/>
+	<TaggedList ListID="9408"/>
+	<TaggedList ListID="500003" ResourceType="PROJECT" IsFromProject="true"/>
+	<ImageObject ImageID="1" Object="World.png" />
+	<ImageObject ImageID="13" Object="Calculate.png" />
+	<ImageObject ImageID="30" Object="TimePlanning.png" />
+	<Action Context="DATASAVE" Message="Alan geçerli bilgi içermelidir: ~1">
+		<Command Name="CHECK" Parameters="mandatory"/>
+		<Resource Property="Message" ListID="12000" StringTag="501"/>
+	</Action>
+	<Action Context="WINDOWCLOSE" Message="Yapılan değişiklikler kaydedilmeyecektir.">
+		<Command Name="CHECK" Parameters="dataloss"/>
+		<Resource Property="Message" ListID="12000" StringTag="502"/>
+	</Action>
+	<Action Context="WINDOWOPEN">
+		<Command Name="SETFOCUS" Parameters="CTRL_1000001"/>
+	</Action>
+</XUIForm>
