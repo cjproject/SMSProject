@@ -10,6 +10,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
 
 import com.acme.customization.client.DoubleClickOnGridEvent;
@@ -432,7 +433,7 @@ public class CXESMSAlert implements KeyListener{
 			if (number != null && number.compareTo(phoneNumber) == 0)
 			{
 				String warningMsg = "\""+phoneNumber +"\""+ " "+m_Container.getMessage(500052,0)+" "+m_Container.getMessage(500052,1)+" " +"\""+ name+"\""+ ".";
-				m_Context.showMessage(null,warningMsg);
+				JOptionPane.showMessageDialog(null, warningMsg);
 				return true;
 			}
 		}
@@ -573,8 +574,8 @@ public class CXESMSAlert implements KeyListener{
 		CustomBusinessObjects users = (CustomBusinessObjects)ProjectUtil.getMemberValue(m_SMSAlert, "AlertUsers");
 		if(ProjectUtil.getBOStringFieldValue(m_SMSAlert, "MainMessage").length() == 0)
 		{
-			//JOptionPane.showMessageDialog(null, "Mesaj alaný boþ býrakýlamaz!");
-			m_Context.showMessage(null, m_Container.getMessage(500052,6));
+			// Mesaj alaný boþ býrakýlamaz!;
+			JOptionPane.showMessageDialog(null, m_Container.getMessage(500052,6));
 			event.setReturnObject(false);
 			return;
 		}
@@ -870,7 +871,7 @@ public class CXESMSAlert implements KeyListener{
 		{
 			if(ProjectUtil.getIntValueOfCheckBox(m_SMSAlert, "Periodic") == 1)
 			{
-				m_Context.showMessage(null, m_Container.getMessage(500052,5));
+				JOptionPane.showMessageDialog(null, m_Container.getMessage(500052,5));
 				checkbox.setSelected(true);
 			}
 			else
@@ -934,13 +935,13 @@ public class CXESMSAlert implements KeyListener{
 						
 			if(ProjectUtil.getBOStringFieldValue(m_SMSAlert, "MainMessage").length() == 0)
 			{
-				m_Context.showMessage(null, m_Container.getMessage(500052,6));
+				JOptionPane.showMessageDialog(null, m_Container.getMessage(500052,6));
 				event.setReturnObject(false);
 				return;
 			}
 			if(ProjectUtil.getIntValueOfCheckBox(m_SMSAlert, "Periodic") == 1 && ProjectUtil.getBOIntFieldValue(m_SMSAlert, "Period") == 0)
 			{
-				m_Context.showMessage(null, m_Container.getMessage(500052,7));
+				JOptionPane.showMessageDialog(null, m_Container.getMessage(500052,7));
 				event.setReturnObject(false);
 				return;
 			}
@@ -985,7 +986,7 @@ public class CXESMSAlert implements KeyListener{
 			
 			if (isPeriodic && batchEndDate.compareTo(batchBeginDate) < 0)
 			{
-				m_Context.showMessage(null, m_Container.getMessage(500052,7));
+				JOptionPane.showMessageDialog(null, m_Container.getMessage(500052,7));
 				m_Event.setReturnObject(false);
 				return;
 			}

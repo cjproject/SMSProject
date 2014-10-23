@@ -129,7 +129,7 @@ public class CLHAlert extends BasicBusinessLogicHandler {
 				}
 		} else
 			try {
-				batchServ.requestImmediateBatchOperation("BatchSMSAlert", new Object[] { alert }, false) ;
+				batchServ.requestImmediateBatchOperation("BatchSMSAlert", new Object[] { alert }, false, false);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

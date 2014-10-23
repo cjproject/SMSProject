@@ -9,6 +9,9 @@ import java.util.ArrayList;
 
 
 
+
+import javax.swing.JOptionPane;
+
 import com.acme.customization.shared.ProjectGlobals;
 import com.acme.customization.shared.ProjectUtil;
 import com.lbs.appobjects.GOBOUser;
@@ -245,12 +248,12 @@ public class CXEMobileSubscriber{
 	public void onSaveData(JLbsXUIControlEvent event)
 	{
 		/** onSaveData : This method is called before form data is saved to determine whether the form data can be saved or not. Event parameter object (JLbsXUIControlEvent) contains form object in 'container' and 'component' properties, and form data object in 'data' property. A boolean ('true' means form data can be saved) return value is expected. If no return value is specified or the return value is not of type boolean, default value is 'true'. */
-		CustomBusinessObject data = (CustomBusinessObject) event.getData();
 		JLbsTextEdit phoneNumTxtEdit =  (JLbsTextEdit)event.getContainer().getComponentByTag(2002);
 		JLbsTextEdit tcknoTxtEdit =  (JLbsTextEdit)event.getContainer().getComponentByTag(2003);
 		if(phoneNumTxtEdit.getText().length() == 0 && tcknoTxtEdit.getText().length()==0)
 		{
-			event.getContainer().messageDialog(500005, 100, "", null); //"Telefon numarasý veya TC Kimlik No girilmelidir"
+			String message = event.getContainer().getMessage(500005, 100);//"Telefon numarasý veya TC Kimlik No girilmelidir"
+			JOptionPane.showMessageDialog(null, message);
 			event.setReturnObject(false);
 		}
 		createTitle(event.getData());

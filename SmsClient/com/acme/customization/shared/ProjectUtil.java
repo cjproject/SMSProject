@@ -518,10 +518,9 @@ public class ProjectUtil
 	}
 	public static void warn(JLbsXUIEventBase event, String msg)
 	{
-		JLbsXUIPane container = event.getContainer();
-		container.messageDialog(msg, null);
+		event.getClientContext().showMessage("", msg);
 	}
-	public static boolean Confirm(JLbsXUIEventBase event, String msg)
+	/*public static boolean Confirm(JLbsXUIEventBase event, String msg)
 	{
 		JLbsXUIPane container = event.getContainer();
 		return container.confirmed(msg);
@@ -531,7 +530,7 @@ public class ProjectUtil
 	{
 		JLbsXUIPane container = event.getContainer();
 		container.messageDialog(msg, list);
-	}
+	}*/
 	public static CustomBusinessObject readObject(JLbsXUIControlEvent event, String BOName, int BORef)
 	{
 		JLbsXUIPane container = event.getContainer();
@@ -653,7 +652,7 @@ public class ProjectUtil
 
 		return numDays;
 	}
-	public static void showFormParameters(JLbsXUIControlEvent event)
+	/*public static void showFormParameters(JLbsXUIControlEvent event)
 	{
 		JLbsXUIPane container = event.getContainer();
 		Object data = container.getData();
@@ -701,7 +700,7 @@ public class ProjectUtil
 		{
 			warn(event, "Form data: " + data.toString());
 		}
-	}
+	}*/
 	
 	public static Object getBOFieldValue(Object bo, String fieldName)
 	{
