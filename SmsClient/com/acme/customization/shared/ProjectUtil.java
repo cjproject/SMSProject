@@ -70,6 +70,50 @@ import com.lbs.dialog.JLbsMessageDialogResult;
 public class ProjectUtil
 {
 	
+	public static void setUserInfo(IApplicationContext context, CustomBusinessObject user)
+	{
+		if (user != null)
+		{
+			if(ProjectUtil.getBOIntFieldValue(user, "UserType") == ProjectGlobals.USER_TYPE_ARP) 
+			{
+				int arpRef = ProjectUtil.getBOIntFieldValue(user, "CardReference");
+				if (arpRef > 0)
+				{
+					ArrayList arpRefList = new ArrayList();
+					arpRefList.add(arpRef);
+					CustomBusinessObjects userList = ProjectUtil.getUserListWithArpInfo(context, arpRefList);
+					if (userList.size() > 0)
+					{
+						CustomBusinessObject listUser = (CustomBusinessObject) userList.get(0);
+						ProjectUtil.setMemberValueUn(user, "ArpCode",  ProjectUtil.getBOStringFieldValue(listUser, "ArpCode"));
+						ProjectUtil.setMemberValueUn(user, "ArpTitle",  ProjectUtil.getBOStringFieldValue(listUser, "ArpTitle"));
+						ProjectUtil.setMemberValueUn(user, "ArpBalance", ProjectUtil.getBOBigDecimalFieldValue(listUser, "ArpBalance"));
+					}
+				}
+	
+			}
+			else if(ProjectUtil.getBOIntFieldValue(user, "UserType") == ProjectGlobals.USER_TYPE_EMPLOYEE) 
+			{
+				int personRef = ProjectUtil.getBOIntFieldValue(user, "CardReference");
+				if (personRef > 0)
+				{
+					ArrayList personRefList = new ArrayList();
+					personRefList.add(personRef);
+					CustomBusinessObjects userList = ProjectUtil.getUserListWithPersonInfo(context, personRefList);
+					if (userList.size() > 0)
+					{
+						CustomBusinessObject listUser = (CustomBusinessObject) userList.get(0);
+						ProjectUtil.setMemberValueUn(user, "PersonCode",  ProjectUtil.getBOStringFieldValue(listUser, "PersonCode"));
+						ProjectUtil.setMemberValueUn(user, "PersonName",  ProjectUtil.getBOStringFieldValue(listUser, "PersonName"));
+						ProjectUtil.setMemberValueUn(user, "PersonSurName", ProjectUtil.getBOStringFieldValue(listUser, "PersonSurName"));
+					}
+				}
+			}
+		}
+	}
+	
+	
+	
 	public static boolean confirmed(JLbsXUIPane container, int listNr, int msgNr, int defButton)
 	{
 		JLbsStringList msgList = container.getTaggedList(listNr);
@@ -87,7 +131,7 @@ public class ProjectUtil
 	}
 
 	
-	public static CustomBusinessObjects getUserListWithPersonInfo(IClientContext context,  ArrayList personRefList) 
+	public static CustomBusinessObjects getUserListWithPersonInfo(IApplicationContext context,  ArrayList personRefList) 
 	{
 		CustomBusinessObjects<CustomBusinessObject> userList = new CustomBusinessObjects<CustomBusinessObject>();
 		try {
@@ -124,7 +168,7 @@ public class ProjectUtil
 		return userList	;
 	}
 	
-	public static CustomBusinessObjects getUserListWithArpInfo(IClientContext context,  ArrayList arpRefList) 
+	public static CustomBusinessObjects getUserListWithArpInfo(IApplicationContext context,  ArrayList arpRefList) 
 	{
 		CustomBusinessObjects<CustomBusinessObject> userList = new CustomBusinessObjects<CustomBusinessObject>();
 		IQueryFactory qryFactory = context.getQueryFactory();
@@ -187,7 +231,15 @@ public class ProjectUtil
 		alertInfo.setScheduleDate(ProjectUtil.getBOCalendarFieldValue(alertCBO, "ScheduleDate"));
 		alertInfo.setPeriod(ProjectUtil.getBOIntFieldValue(alertCBO, "Period"));
 		alertInfo.setPeriodic(ProjectUtil.getBOBooleanFieldValue(alertCBO, "Periodic"));
-		alertInfo.setSmsObjectList((ArrayList)ProjectUtil.getMemberValue(alertCBO, "SmsObjectList"));
+		alertInfo.setMainMessage(ProjectUtil.getBOStringFieldValue(alertCBO, "MainMessage"));
+		//alertInfo.setSmsObjectList((ArrayList)ProjectUtil.getMemberValue(alertCBO, "SmsObjectList"));
+		CustomBusinessObjects users = (CustomBusinessObjects)ProjectUtil.getMemberValue(alertCBO, "AlertUsers");
+		if (users != null)
+			for (int i = users.size() - 1; i >= 0; i--)
+			{
+				CustomBusinessObject user = (CustomBusinessObject) users.get(i);
+				alertInfo.getUsersRefList().add(ProjectUtil.getBOIntegerFieldValue(user, "UserRef"));
+			}
 		
 	}
 

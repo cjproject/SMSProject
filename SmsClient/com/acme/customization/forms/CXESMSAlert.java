@@ -148,7 +148,7 @@ public class CXESMSAlert implements KeyListener{
 				ProjectUtil.setMemberValue(user, "Tckno", ProjectUtil.getBOStringFieldValue(userInfo, "Tckno"));
 				ProjectUtil.setMemberValue(user, "CardReference", ProjectUtil.getBOIntFieldValue(userInfo, "CardReference"));
 				ProjectUtil.setMemberValue(user, "UserType", ProjectUtil.getBOIntFieldValue(userInfo, "UserType"));
-				setUserInfo(user);
+				ProjectUtil.setUserInfo(m_Context, user);
 			}
 		}
 			
@@ -276,53 +276,12 @@ public class CXESMSAlert implements KeyListener{
 		return true;
 	}
 	
-	public void setUserInfo(CustomBusinessObject user)
-	{
-		if (user != null)
-		{
-			if(ProjectUtil.getBOIntFieldValue(user, "UserType") == ProjectGlobals.USER_TYPE_ARP) 
-			{
-				int arpRef = ProjectUtil.getBOIntFieldValue(user, "CardReference");
-				if (arpRef > 0)
-				{
-					ArrayList arpRefList = new ArrayList();
-					arpRefList.add(arpRef);
-					CustomBusinessObjects userList = ProjectUtil.getUserListWithArpInfo(m_Context, arpRefList);
-					if (userList.size() > 0)
-					{
-						CustomBusinessObject listUser = (CustomBusinessObject) userList.get(0);
-						ProjectUtil.setMemberValueUn(user, "ArpCode",  ProjectUtil.getBOStringFieldValue(listUser, "ArpCode"));
-						ProjectUtil.setMemberValueUn(user, "ArpTitle",  ProjectUtil.getBOStringFieldValue(listUser, "ArpTitle"));
-						ProjectUtil.setMemberValueUn(user, "ArpBalance", ProjectUtil.getBOBigDecimalFieldValue(listUser, "ArpBalance"));
-					}
-				}
-	
-			}
-			else if(ProjectUtil.getBOIntFieldValue(user, "UserType") == ProjectGlobals.USER_TYPE_EMPLOYEE) 
-			{
-				int personRef = ProjectUtil.getBOIntFieldValue(user, "CardReference");
-				if (personRef > 0)
-				{
-					ArrayList personRefList = new ArrayList();
-					personRefList.add(personRef);
-					CustomBusinessObjects userList = ProjectUtil.getUserListWithPersonInfo(m_Context, personRefList);
-					if (userList.size() > 0)
-					{
-						CustomBusinessObject listUser = (CustomBusinessObject) userList.get(0);
-						ProjectUtil.setMemberValueUn(user, "PersonCode",  ProjectUtil.getBOStringFieldValue(listUser, "PersonCode"));
-						ProjectUtil.setMemberValueUn(user, "PersonName",  ProjectUtil.getBOStringFieldValue(listUser, "PersonName"));
-						ProjectUtil.setMemberValueUn(user, "PersonSurName", ProjectUtil.getBOStringFieldValue(listUser, "PersonSurName"));
-					}
-				}
-			}
-		}
-	}
 	
 	public void setUserInfo(ILbsXUIPane container, Object data, IClientContext context)
 	{
 		CustomBusinessObjects users = (CustomBusinessObjects) ProjectUtil.getMemberValue(m_SMSAlert, "AlertUsers");
 		CustomBusinessObject user =  (CustomBusinessObject) users.get(selectedRow);
-		setUserInfo(user);
+		ProjectUtil.setUserInfo(m_Context, user);
 	}
 			
 	public boolean createMsgWithTemplate(ILbsXUIPane container, Object data,
@@ -375,7 +334,7 @@ public class CXESMSAlert implements KeyListener{
 			ProjectUtil.setMemberValue(user, "Tckno", ProjectUtil.getBOStringFieldValue(mblInfoUserLink, "Tckno"));
 			ProjectUtil.setMemberValue(user, "CardReference", ProjectUtil.getBOIntFieldValue(mblInfoUserLink, "CardReference"));
 			ProjectUtil.setMemberValue(user, "UserType", ProjectUtil.getBOIntFieldValue(mblInfoUserLink, "UserType"));
-			setUserInfo(user);
+			ProjectUtil.setUserInfo(m_Context, user);
 			
 			if (!isPhoneNumberInList(
 					ProjectUtil.getBOStringFieldValue(user, "Phonenumber"),
@@ -412,7 +371,7 @@ public class CXESMSAlert implements KeyListener{
 			ProjectUtil.setMemberValueUn(user, "LogicalReference", QueryUtil.getIntProp(qbo, "MBLINFUSER_REF"));
 			ProjectUtil.setMemberValueUn(user, "UserType", QueryUtil.getIntProp(qbo, "MBLINFUSER_USERTYPE"));
 			
-			setUserInfo(user);
+			ProjectUtil.setUserInfo(m_Context, user);
 			if (!isPhoneNumberInList(
 					ProjectUtil.getBOStringFieldValue(user, "Phonenumber"),
 					ProjectUtil.getBOStringFieldValue(user, "Title"))) {
@@ -601,22 +560,18 @@ public class CXESMSAlert implements KeyListener{
 		}
 		if(users.size()> 0)
 		{
-			ArrayList smsObjectList = prepareSMSObjList(event);
-			if (smsObjectList.size() > 0)
-			{
-				setAlertInfoPropertiesToCBO();
-				if (m_Context != null)
-					try
-					{
-						m_Context.requestBatchOperation("BatchSMSAlert", new Object[] { m_SMSAlert });
-						m_Container.showMessage(IUODMessageConstants.TRANSACTION_STARTED, "", null);
-					}
-					catch (Exception e)
-					{
-						m_Context.getLogger().error("BatchSMSAlert operation batch exception :", e);
-					}
-				m_Container.saveDataAndClose();
-			}
+			setAlertInfoPropertiesToCBO();
+			if (m_Context != null)
+				try
+				{
+					m_Context.requestBatchOperation("BatchSMSAlert", new Object[] { m_SMSAlert });
+					m_Container.showMessage(IUODMessageConstants.TRANSACTION_STARTED, "", null);
+				}
+				catch (Exception e)
+				{
+					m_Context.getLogger().error("BatchSMSAlert operation batch exception :", e);
+				}
+			m_Container.checkAndClose();
 		}
 		
 	}
@@ -1002,7 +957,6 @@ public class CXESMSAlert implements KeyListener{
 		ProjectUtil.setMemberValueUn(m_SMSAlert, "ScheduleDate", UnityBatchHelper.getScheduleDate(m_Container));
 		ProjectUtil.setMemberValueUn(m_SMSAlert, "Period", ProjectUtil.getBOIntFieldValue(m_SMSAlert, "Period"));
 		ProjectUtil.setMemberValueUn(m_SMSAlert, "Periodic", isPeriodic);
-		ProjectUtil.setMemberValueUn(m_SMSAlert, "SmsObjectList", prepareSMSObjList(m_Event));
 		
 	}
 

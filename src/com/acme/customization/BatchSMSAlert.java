@@ -3,10 +3,15 @@ package com.acme.customization;
 import com.lbs.batch.BatchOperationBase;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Vector;
+
+
+
+
+
 
 
 
@@ -27,11 +32,9 @@ import com.lbs.batch.classes.BatchSuspensionDataBase;
 import com.lbs.batch.classes.ServerBatchUtil;
 import com.lbs.data.database.cache.DBPreparedStatementCache;
 import com.lbs.data.objects.CustomBusinessObject;
-import com.lbs.data.objects.CustomBusinessObjects;
-import com.lbs.data.query.IQueryFactory;
-import com.lbs.data.query.QueryParams;
 import com.acme.customization.cbo.CEOAlertInfo;
 import com.acme.customization.cbo.CEOSMSObject;
+import com.acme.customization.client.MessageSplitControl;
 import com.acme.customization.shared.ProjectGlobals;
 import com.acme.customization.shared.ProjectUtil;
 import com.acme.customization.ws.maradit.Maradit;
@@ -40,6 +43,7 @@ import com.acme.customization.ws.maradit.SubmitResponse;
 public class BatchSMSAlert extends BatchOperationBase implements IBatchTerminatable, IBatchSuspendable, Serializable{
 	
 	private ArrayList m_SMSObjectList = new ArrayList();
+	private ArrayList m_UsersRefList = new ArrayList();
 	private CustomBusinessObject m_SMSAlertObj = new CustomBusinessObject();
 	private CEOAlertInfo m_AlertInfo = new CEOAlertInfo();
 	private Vector m_LogList = new Vector();
@@ -52,7 +56,12 @@ public class BatchSMSAlert extends BatchOperationBase implements IBatchTerminata
 	
 	public int setParams(CustomBusinessObject smsAlertObj)
 	{
-		m_SMSAlertObj = smsAlertObj;
+		try {
+			m_SMSAlertObj = smsAlertObj;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		ProjectUtil.setAlertInfoPropFromCBO(m_AlertInfo, m_SMSAlertObj);
 		return STATUS_COMPLETED;
 	}
@@ -64,8 +73,8 @@ public class BatchSMSAlert extends BatchOperationBase implements IBatchTerminata
 			DBPreparedStatementCache.STATEMENT_CACHE = false;
 			//insert into batch tables
 			setBatchOperationID(operationID);
-			m_SMSObjectList = m_AlertInfo.getSmsObjectList();
-			okay =  m_SMSObjectList.size() > 0;
+			m_UsersRefList = m_AlertInfo.getUsersRefList();
+			okay =  m_UsersRefList.size() > 0;
 
 			if (okay)
 				sendSMSRoutine(batchUtil);
@@ -87,15 +96,19 @@ public class BatchSMSAlert extends BatchOperationBase implements IBatchTerminata
 			Maradit maradit = new Maradit(m_AlertInfo.getUserName(), m_AlertInfo.getPassword());
         	maradit.validityPeriod = 120;
         	//maradit.from =  ProjectUtil.getCompanyName(m_ServerContext);
-			for (int i = recStartCount; i < m_SMSObjectList.size(); i++)
+			for (int i = recStartCount; i < m_UsersRefList.size(); i++)
 			{
 				totalCount++;
 				recStartCount++;
-				CustomBusinessObject smsObj = (CustomBusinessObject) m_SMSObjectList.get(i);
+				Integer userRef = (Integer) m_UsersRefList.get(i);
 
-				String phoneNumber = ProjectUtil.getBOStringFieldValue(smsObj, "Phonenumber");
-				String title = ProjectUtil.getBOStringFieldValue(smsObj, "Title");
-				String message = ProjectUtil.getBOStringFieldValue(smsObj, "Message");
+				CustomBusinessObject user = ProjectUtil.readObject(m_ServerContext, "CBOMblInfoUser", userRef);
+				ProjectUtil.setUserInfo(m_ServerContext, user);
+				
+				String phoneNumber = ProjectUtil.getBOStringFieldValue(user, "Phonenumber");
+				String title = ProjectUtil.getBOStringFieldValue(user, "Title");
+				String message = prepareMessage(user);
+				
 				ArrayList ToList = new ArrayList<String>();
 				ToList.add(phoneNumber);
 				SubmitResponse response = maradit.submit(ToList, message);
@@ -111,6 +124,124 @@ public class BatchSMSAlert extends BatchOperationBase implements IBatchTerminata
 
 
 	} //END of sendSMSRoutine()
+	
+	private String prepareMessage(CustomBusinessObject user)
+	{
+		String messageMain = m_AlertInfo.getMainMessage();
+		String message=null;
+		if (!messageMain.isEmpty()) {
+			
+				if (ProjectUtil.getBOStringFieldValue(user, "Phonenumber")
+						.length() == 0)
+					return message;
+				message = messageMain;
+				  
+				  if(message.contains("P10"))
+					{
+						if(ProjectUtil.getMemberValue(user,
+								"PersonName")!=null)
+						message=message.replace("P10",(String) ProjectUtil.getMemberValue(user,
+								"PersonName"));
+						else 
+							message= message.replace("P10","");
+					}
+					
+					if(message.contains("P11"))
+					{
+						if(ProjectUtil.getMemberValue(user,
+								"PersonSurName")!=null)
+						message=message.replace("P11",(String) ProjectUtil.getMemberValue(user,
+								"PersonSurName"));
+						else 
+							message= message.replace("P11","");
+					}
+				
+				 if(message.contains("P1"))
+					{
+						if(ProjectUtil.getMemberValue(user,
+								"Name")!=null)
+		              message= message.replace("P1",(String) ProjectUtil.getMemberValue(user,
+									"Name"));	
+						else 
+							message= message.replace("P1","");
+					}
+					
+					if(message.contains("P2"))
+					{
+						if(ProjectUtil.getMemberValue(user,
+								"SurName")!=null)
+						message=message.replace("P2",(String) ProjectUtil.getMemberValue(user,
+									"SurName"));
+						else 
+							message= message.replace("P2","");
+					}
+					
+					if(message.contains("P3"))
+					{
+						if(ProjectUtil.getMemberValue(user,
+								"Phonenumber")!=null)
+						message=message.replace("P3",(String) ProjectUtil.getMemberValue(user,
+									"Phonenumber"));
+						else 
+							message= message.replace("P3","");
+					}
+					
+					if(message.contains("P4"))
+					{
+						message=message.replace("P4",MessageSplitControl.returnDate());
+					}
+					
+					if(message.contains("P5"))
+					{
+						message=message.replace("P5",MessageSplitControl.returnTime());
+					}
+					
+					if(message.contains("P6"))
+					{
+						if(ProjectUtil.getMemberValue(user,
+								"ArpCode")!=null)
+						message=message.replace("P6",(String) ProjectUtil.getMemberValue(user,
+								"ArpCode"));
+						else 
+							message= message.replace("P6","");
+					}
+					
+					if(message.contains("P7"))
+					{
+						if(ProjectUtil.getMemberValue(user,
+								"ArpTitle")!=null)
+						message=message.replace("P7",(String) ProjectUtil.getMemberValue(user,
+								"ArpTitle"));
+						else 
+							message= message.replace("P7","");
+					}
+			
+					if(message.contains("P8"))
+					{
+						if(ProjectUtil.getMemberValue(user,
+								"ArpBalance")!=null)
+						message=message.replace("P8",((BigDecimal) ProjectUtil.getMemberValue(user,
+								"ArpBalance")).toString());
+						else 
+							message= message.replace("P8","");
+					}
+					
+					if(message.contains("P9"))
+					{
+						if(ProjectUtil.getMemberValue(user,
+								"PersonCode")!=null)
+						message=message.replace("P9",((String) ProjectUtil.getMemberValue(user,
+								"PersonCode")).toString());
+						else 
+							message= message.replace("P9","");
+					}
+					
+		     	}
+			
+
+		return message;
+	}
+	
 	
 	public Vector getBatchLog(Vector logList, Object[] paramList)
 	{
@@ -154,6 +285,7 @@ public class BatchSMSAlert extends BatchOperationBase implements IBatchTerminata
 		/*Main Vars*/
 		values.put("operationID", Integer.valueOf(operationID));
 		values.put("m_SMSAlertObj", m_SMSAlertObj);
+		values.put("m_UsersRefList", m_UsersRefList);
 		values.put("m_AlertInfo", m_AlertInfo);
 		values.put("m_LogList", m_LogList);
 		values.put("totalCount", Integer.valueOf(totalCount));
@@ -172,6 +304,7 @@ public class BatchSMSAlert extends BatchOperationBase implements IBatchTerminata
 		this.m_SMSAlertObj = (CustomBusinessObject) values.get("m_SMSAlertObj");
 		this.m_AlertInfo = (CEOAlertInfo) values.get("m_AlertInfo");
 		this.m_LogList = (Vector) values.get("m_LogList");
+		this.m_UsersRefList = (ArrayList)values.get("m_UsersRefList");
 		this.okay = ((Boolean) values.get("okay")).booleanValue();
 	}
 

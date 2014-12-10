@@ -6,13 +6,16 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+import com.lbs.data.objects.CustomBusinessObject;
 
-public class CEOAlertInfo implements Serializable{
+
+public class CEOAlertInfo extends CustomBusinessObject implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
 	private String userName = "";
 	private String password = "";
+	private String mainMessage = "";
 	
 	private boolean schedule = false;
 	private boolean periodic = false;
@@ -25,6 +28,7 @@ public class CEOAlertInfo implements Serializable{
 	private Calendar endDate = null;
 	
 	private ArrayList smsObjectList = new ArrayList();
+	private ArrayList usersRefList = new ArrayList();
 	
 	
 	public String getUserName() {
@@ -86,5 +90,17 @@ public class CEOAlertInfo implements Serializable{
 	}
 	public void setAlertRef(int alertRef) {
 		this.alertRef = alertRef;
+	}
+	public ArrayList getUsersRefList() {
+		return usersRefList;
+	}
+	public void setUsersRefList(ArrayList usersRefList) {
+		this.usersRefList = usersRefList;
+	}
+	public String getMainMessage() {
+		return mainMessage;
+	}
+	public void setMainMessage(String mainMessage) {
+		this.mainMessage = mainMessage;
 	}
 }
