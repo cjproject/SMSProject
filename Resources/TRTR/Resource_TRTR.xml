@@ -127,5 +127,6 @@
 		<ListItem Tag="7" Item="Period seçilmelidir!" Order="7" />
 		<ListItem Tag="8" Item="Bitiş tarihi başlangıç tarihinden önce olamaz!" Order="8" />
 		<ListItem Tag="2" Item="Telefon numarası boş olan satırlar silinecektir. Devam etmek istiyor musunuz?" Order="2" />
+		<ListItem Tag="9" Item="Bitiş tarihi boş bırakılamaz!" Order="9" />
 	</TaggedList>
 </TaggedLists>

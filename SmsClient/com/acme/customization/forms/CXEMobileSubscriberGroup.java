@@ -1,10 +1,18 @@
 package com.acme.customization.forms;
 
 import com.acme.customization.shared.ProjectUtil;
+import com.lbs.data.grids.MultiSelectionList;
 import com.lbs.data.objects.CustomBusinessObject;
 import com.lbs.data.objects.CustomBusinessObjects;
+import com.lbs.data.query.QueryBusinessObject;
+import com.lbs.data.query.QueryObjectIdentifier;
 import com.lbs.grids.JLbsObjectListGrid;
+import com.lbs.remoteclient.IClientContext;
+import com.lbs.unity.UnityHelper;
+import com.lbs.util.QueryUtil;
+import com.lbs.xui.ILbsXUIPane;
 import com.lbs.xui.JLbsXUILookupInfo;
+import com.lbs.xui.JLbsXUIPane;
 import com.lbs.xui.JLbsXUITypes;
 import com.lbs.xui.events.swing.JLbsCustomXUIEventListener;
 import com.lbs.xui.customization.JLbsXUIGridEvent;
@@ -52,5 +60,43 @@ public class CXEMobileSubscriberGroup extends JLbsCustomXUIEventListener {
 		 event.setCtxData(grpLine);
 		 event.getEditGrid().rowListChanged();
 	}
+	
+	public void selectMobileSubcribers(ILbsXUIPane container, Object data,	IClientContext context) {
+
+		JLbsXUILookupInfo info = new JLbsXUILookupInfo();
+		boolean ok = container.openChild("Forms/CXFMobileSubscribersBrowser.lfrm",
+				info, true, JLbsXUITypes.XUIMODE_DBSELECT);
+		if ((!ok) || (info.getResult() <= 0))
+			return;
+
+		JLbsObjectListGrid grid = ((com.lbs.grids.JLbsObjectListGrid) container.getComponentByTag(3000008));
+		MultiSelectionList list = (MultiSelectionList) info
+				.getParameter("MultiSelectionList");
+		for (int i = 0; i < list.size(); i++) {
+			QueryObjectIdentifier qId = (QueryObjectIdentifier) list.get(i);
+			QueryBusinessObject qbo = (QueryBusinessObject) qId
+					.getAssociatedData();
+			
+			CustomBusinessObject groupLn = ProjectUtil.createNewCBO("CBOMblInfoUsrGrpLn");
+			ProjectUtil.setMemberValueUn(groupLn, "MblInfoUserLink", ProjectUtil.createNewCBO("CBOMblInfoUser"));
+			ProjectUtil.setMemberValueUn(groupLn, "MblinfuserReference", QueryUtil.getIntProp(qbo, "MBLINFUSER_REF"));
+			ProjectUtil.setMemberValueUn(groupLn, "MblInfoUserLink.Name", QueryUtil.getStringProp(qbo, "MBLINFUSER_NAME"));
+			ProjectUtil.setMemberValueUn(groupLn, "MblInfoUserLink.SurName", QueryUtil.getStringProp(qbo, "MBLINFUSER_SURNAME"));
+			ProjectUtil.setMemberValueUn(groupLn, "MblInfoUserLink.Phonenumber", QueryUtil.getStringProp(qbo, "MBLINFUSER_PHONENUMBER"));
+			int row = grid.getSelectedRow();
+			if (i == 0)
+			{
+				grid.getObjects().set(row, groupLn);
+			}
+			else
+			{
+				grid.getObjects().add(groupLn);
+				
+			}
+			
+			}
+		grid.rowListChanged();
+		}
+
 
 }

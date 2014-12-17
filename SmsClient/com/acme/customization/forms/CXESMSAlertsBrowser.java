@@ -17,27 +17,6 @@ public class CXESMSAlertsBrowser{
 		System.out.println("initiliazed..");
 	}
 
-	public void onGridCanCreateObject(JLbsXUIDataGridEvent event)
-	{
-		event.getClientContext().setVariable("ALERT", 1);
-	}
-
-
-	public void onGridCanDuplicateObject(JLbsXUIDataGridEvent event)
-	{
-		event.getClientContext().setVariable("ALERT", 1);
-	}
-
-	public void onGridCanUpdateObject(JLbsXUIDataGridEvent event)
-	{
-		event.getClientContext().setVariable("ALERT", 1);
-	}
-	
-	public void onGridCanViewObject(JLbsXUIDataGridEvent event)
-	{
-		event.getClientContext().setVariable("ALERT", 1);
-	}
-	
 	public boolean openSMSBatches(ILbsXUIPane container, Object data,
 			IClientContext context) {
 		

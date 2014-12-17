@@ -33,6 +33,7 @@ import com.lbs.controls.JLbsComboBox;
 import com.lbs.controls.JLbsEditorPane;
 import com.lbs.controls.JLbsLabel;
 import com.lbs.controls.datedit.JLbsDateEditWithCalendar;
+import com.lbs.controls.datedit.JLbsTimeDuration;
 import com.lbs.controls.datedit.JLbsTimeEdit;
 import com.lbs.controls.numericedit.JLbsNumericEdit;
 import com.lbs.data.grids.MultiSelectionList;
@@ -67,7 +68,7 @@ public class CXESMSAlert implements KeyListener{
 	private UnityBatchHelper batchHelper = new UnityBatchHelper();
 	
 	private JLbsObjectListGrid usersGrid;
-	private JLbsObjectListGrid senderInfoGrid;
+	//private JLbsObjectListGrid senderInfoGrid;
 	private JLbsComboBox cbxSenderInfo = null;
 	
 	private Parameters parameter[] = Parameters.values();
@@ -80,6 +81,7 @@ public class CXESMSAlert implements KeyListener{
 
 	private String message = "";
 	private String mainMassage ="";
+	private String m_FormName = "";
 
 	private CustomBusinessObject m_SMSAlert = null;
 
@@ -91,6 +93,9 @@ public class CXESMSAlert implements KeyListener{
 	
 	private boolean m_Alert = false;
 	
+	private static final String FORM_NAME_SEND_SMS = "CXFSendSMS.lfrm";
+	private static final String FORM_NAME_SMS_ALERT = "CXFSMSAlert.lfrm";
+	
 	public void onInitialize(JLbsXUIControlEvent event) {
 		
 		m_Event = event;
@@ -98,7 +103,14 @@ public class CXESMSAlert implements KeyListener{
 		m_Context = event.getClientContext();
 		m_SMSAlert = (CustomBusinessObject) event.getData();
 		
-		setPermanentStates();
+		m_FormName = event.getContainer().getFormName();
+		if (m_FormName.contains(FORM_NAME_SMS_ALERT))
+		{
+			m_Alert = true;
+		}
+		
+		if (!(m_Container.getMode() == JLbsXUITypes.XUIMODE_VIEWONLY))
+			setPermanentStates();
 
 		addNewUserLine();
 		usersGrid = ((com.lbs.grids.JLbsObjectListGrid) m_Container.getComponentByTag(100));
@@ -106,12 +118,12 @@ public class CXESMSAlert implements KeyListener{
 		initialize = new OnInitializeEvent();
 		initialize.getterParameter(parameter, event, 200,parameterName);
 		
-		if (ProjectUtil.getBOIntFieldValue(m_SMSAlert, "LogicalReference") == 0)
+		if (m_Alert && ProjectUtil.getBOIntFieldValue(m_SMSAlert, "LogicalReference") == 0)
 			resetDates(event);
 		else
 			setAlertUsersInfo();
 
-		senderInfoGrid =  ((com.lbs.grids.JLbsObjectListGrid) m_Container.getComponentByTag(10000032));
+		//senderInfoGrid =  ((com.lbs.grids.JLbsObjectListGrid) m_Container.getComponentByTag(10000032));
 		cbxSenderInfo = (JLbsComboBox) m_Container.getComponentByTag(10000021);
 		updateSenderInfoGrid(event);
 		fillSenderShortDefinition();
@@ -201,7 +213,7 @@ public class CXESMSAlert implements KeyListener{
 
 	private void setPermanentStates()
 	{
-		if (m_Context.getVariable("ALERT") != null && m_Context.getVariable("ALERT") instanceof Integer)
+		if (m_Alert)
 		{
 			m_Container.setPermanentStateByTag(10000030, JLbsXUITypes.XUISTATE_EXCLUDED); //send sms button
 			m_Container.setPermanentStateByTag(10000033, JLbsXUITypes.XUISTATE_ACTIVE); // save alert button
@@ -216,8 +228,6 @@ public class CXESMSAlert implements KeyListener{
 				m_Container.setPermanentStateByTag(10000065, JLbsXUITypes.XUISTATE_ACTIVE); //end time
 				m_Container.setPermanentStateByTag(10000058, JLbsXUITypes.XUISTATE_ACTIVE); //period
 			}
-			m_Alert = true;
-			m_Context.setVariable("ALERT", null);
 		}
 		else
 		{
@@ -232,9 +242,9 @@ public class CXESMSAlert implements KeyListener{
 		//batchHelper.reset(m_Container, 10000060, 10000065, -1);
 			
 		JLbsDateEditWithCalendar startDate = (JLbsDateEditWithCalendar) m_Container.getComponentByTag(400);
-		JLbsTimeEdit startTime = (JLbsTimeEdit) m_Container.getComponentByTag(500);
+		//JLbsTimeEdit startTime = (JLbsTimeEdit) m_Container.getComponentByTag(500);
 		ProjectUtil.setMemberValue(m_SMSAlert, "StartDate", startDate.getCalendar());
-		ProjectUtil.setMemberValue(m_SMSAlert, "StartTime", startTime.getTime());
+		//ProjectUtil.setMemberValue(m_SMSAlert, "StartTime", startTime.getTime());
 			
 		//JLbsDateEditWithCalendar endDate = (JLbsDateEditWithCalendar) m_Container.getComponentByTag(10000060);
 		//JLbsTimeEdit endTime = (JLbsTimeEdit) m_Container.getComponentByTag(10000065);
@@ -244,6 +254,8 @@ public class CXESMSAlert implements KeyListener{
 	}
 
 	public void ParameterOnGridCellDblClick(JLbsXUIGridEvent event) {
+		if (m_Container.getMode() == JLbsXUITypes.XUIMODE_VIEWONLY)
+			return;
 	DoubleClickOnGridEvent doubleClick = new DoubleClickOnGridEvent();
 		doubleClick.addDoubleClickOnText(event, 3001, 200,100,4001,m_SMSAlert);
 	
@@ -333,6 +345,7 @@ public class CXESMSAlert implements KeyListener{
 			ProjectUtil.setMemberValue(user, "Phonenumber", ProjectUtil.getBOStringFieldValue(mblInfoUserLink, "Phonenumber"));
 			ProjectUtil.setMemberValue(user, "Tckno", ProjectUtil.getBOStringFieldValue(mblInfoUserLink, "Tckno"));
 			ProjectUtil.setMemberValue(user, "CardReference", ProjectUtil.getBOIntFieldValue(mblInfoUserLink, "CardReference"));
+			ProjectUtil.setMemberValue(user, "UserRef", ProjectUtil.getBOIntFieldValue(mblInfoUserLink, "LogicalReference"));
 			ProjectUtil.setMemberValue(user, "UserType", ProjectUtil.getBOIntFieldValue(mblInfoUserLink, "UserType"));
 			ProjectUtil.setUserInfo(m_Context, user);
 			
@@ -346,6 +359,12 @@ public class CXESMSAlert implements KeyListener{
 		}
 	}
 
+	
+	public void selectSubscriber(ILbsXUIPane container, Object data, IClientContext context)
+	{
+		onClickSelectSubscriber(null);
+	}
+	
 	public void onClickSelectSubscriber(JLbsXUIControlEvent event) {
 
 		JLbsXUIPane container = m_Container;
@@ -361,14 +380,14 @@ public class CXESMSAlert implements KeyListener{
 			QueryObjectIdentifier qId = (QueryObjectIdentifier) list.get(i);
 			QueryBusinessObject qbo = (QueryBusinessObject) qId
 					.getAssociatedData();
-			CustomBusinessObject user = ProjectUtil.createNewCBO("CBOMaster");
+			CustomBusinessObject user = ProjectUtil.createNewCBO("CBOSMSAlertUser");
 			ProjectUtil.setMemberValueUn(user, "Name", QueryUtil.getStringProp(qbo, "MBLINFUSER_NAME"));
 			ProjectUtil.setMemberValueUn(user, "SurName", QueryUtil.getStringProp(qbo, "MBLINFUSER_SURNAME"));
 			ProjectUtil.setMemberValueUn(user, "Title", QueryUtil.getStringProp(qbo, "MBLINFUSER_TITLE"));
 			ProjectUtil.setMemberValueUn(user, "Tckno",  QueryUtil.getStringProp(qbo, "MBLINFUSER_TCKNO"));
 			ProjectUtil.setMemberValueUn(user, "Phonenumber", QueryUtil.getStringProp(qbo, "MBLINFUSER_PHONENUMBER"));
 			ProjectUtil.setMemberValueUn(user, "CardReference", QueryUtil.getIntProp(qbo, "MBLINFUSER_CARDREF"));
-			ProjectUtil.setMemberValueUn(user, "LogicalReference", QueryUtil.getIntProp(qbo, "MBLINFUSER_REF"));
+			ProjectUtil.setMemberValueUn(user, "UserRef", QueryUtil.getIntProp(qbo, "MBLINFUSER_REF"));
 			ProjectUtil.setMemberValueUn(user, "UserType", QueryUtil.getIntProp(qbo, "MBLINFUSER_USERTYPE"));
 			
 			ProjectUtil.setUserInfo(m_Context, user);
@@ -560,7 +579,7 @@ public class CXESMSAlert implements KeyListener{
 		}
 		if(users.size()> 0)
 		{
-			setAlertInfoPropertiesToCBO();
+			setAlertInfoPropertiesToCBO(event);
 			if (m_Context != null)
 				try
 				{
@@ -676,8 +695,8 @@ public class CXESMSAlert implements KeyListener{
 			 {
 				 continue;
 			 }
-			 cBO.setObjectName("CBOSenderInfo");
-			 cBO.setCustomization(ProjectGlobals.getM_ProjectGUID());
+			// cBO.setObjectName("CBOSenderInfo");
+			 //cBO.setCustomization(ProjectGlobals.getM_ProjectGUID());
 			if (ProjectUtil.getBOIntFieldValue(cBO, "LogicalReference") == 0) {
 				cBO._setState(IBusinessObjectStates.STATE_NEW);
 			} else
@@ -699,7 +718,7 @@ public class CXESMSAlert implements KeyListener{
 		
 	}
 
-	public void onPageChange(JLbsXUIControlEvent event) {
+	/*public void onPageChange(JLbsXUIControlEvent event) {
 		if (senderInfoGrid != null) {
 			JTabbedPane tabbedPane = (JTabbedPane) event.getComponent();
 			if (tabbedPane.getSelectedIndex() == 0)
@@ -716,7 +735,7 @@ public class CXESMSAlert implements KeyListener{
 				m_Container.setPermanentStateByTag(10000051, JLbsXUITypes.XUISTATE_ACTIVE); // save sender info button
 			}
 		}
-	}
+	}*/
 	 
 	private void updateSenderInfoGrid(JLbsXUIControlEvent event)
 	{
@@ -741,8 +760,8 @@ public class CXESMSAlert implements KeyListener{
 				senderInfoList.add(senderInfo);
 			}
 		}
-		senderInfoGrid.setObjects(senderInfoList);
-		senderInfoGrid.rowListChanged();
+		//senderInfoGrid.setObjects(senderInfoList);
+		//senderInfoGrid.rowListChanged();
 	}
 	
 	private void fillSenderShortDefinition()
@@ -757,8 +776,15 @@ public class CXESMSAlert implements KeyListener{
 			String shortDef = ProjectUtil.getBOStringFieldValue(cBO, "ShortDef");
 			senderInfoStringList.add(shortDef, logicalRef);
 		}
-		if (cbxSenderInfo != null) {
+		if (cbxSenderInfo != null)
+		{
 			cbxSenderInfo.setItems(senderInfoStringList);
+			int alertRef = ProjectUtil.getBOIntFieldValue(m_SMSAlert, "LogicalReference");
+			if (ProjectUtil.getBOIntFieldValue(m_SMSAlert, "LogicalReference") > 0)
+			{
+				cbxSenderInfo.setSelectedItemTag(alertRef);
+				m_Container.resetValueByTag(10000021);
+			}
 		}
 	}
 	
@@ -798,7 +824,7 @@ public class CXESMSAlert implements KeyListener{
 				else
 					ProjectUtil.setMemberValueUn(cBO, "Default_", new Integer(0));
 			}
-			senderInfoGrid.rowListChanged();
+			//senderInfoGrid.rowListChanged();
 		}
 	}
 
@@ -885,6 +911,26 @@ public class CXESMSAlert implements KeyListener{
 	public void onSaveData(JLbsXUIControlEvent event)
 	{
 		CustomBusinessObjects users = (CustomBusinessObjects)ProjectUtil.getMemberValue(m_SMSAlert, "AlertUsers");
+		boolean asked = false;
+		boolean remove = false;
+		for (int i = users.size() - 1; i >= 0; i--)
+		{
+			CustomBusinessObject user = (CustomBusinessObject) users.get(i);
+			if (ProjectUtil.getBOStringFieldValue(user, "Phonenumber").length() == 0)
+			{
+				if(!asked)
+				{
+					 remove = ProjectUtil.confirmed(m_Container, 500052, 2, JLbsMessageDialog.BUT_OK);
+				}
+				if(remove)
+					users.remove(i);
+				else
+				{
+					event.setReturnObject(false);
+					return;
+				}
+			}
+		}
 		if(ProjectUtil.getIntValueOfCheckBox(m_SMSAlert, "Active") == 1)
 		{
 						
@@ -900,50 +946,35 @@ public class CXESMSAlert implements KeyListener{
 				event.setReturnObject(false);
 				return;
 			}
-			boolean asked = false;
-			boolean remove = false;
-			for (int i = users.size() - 1; i >= 0; i--)
-			{
-				CustomBusinessObject user = (CustomBusinessObject) users.get(i);
-				if (ProjectUtil.getBOStringFieldValue(user, "Phonenumber").length() == 0)
-				{
-					if(!asked)
-					{
-						 remove = ProjectUtil.confirmed(m_Container, 500052, 2, JLbsMessageDialog.BUT_OK);
-					}
-					if(remove)
-						users.remove(i);
-					else
-					{
-						event.setReturnObject(false);
-						return;
-					}
-				}
-			}
 		}
 		
-		setAlertInfoPropertiesToCBO();
+		setAlertInfoPropertiesToCBO(event);
 	}
 	
-	private void setAlertInfoPropertiesToCBO() {
+	private void setAlertInfoPropertiesToCBO(JLbsXUIControlEvent  event) {
 		
 		Calendar batchBeginDate = null;
 		Calendar batchEndDate = null;
 		boolean isPeriodic =  ProjectUtil.getIntValueOfCheckBox(m_SMSAlert, "Periodic") == 1;
 		if(m_Alert)
 		{
-			batchBeginDate = ProjectUtil.concatDates(
-					ProjectUtil.getBOCalendarFieldValue(m_SMSAlert, "StartDate"),
-					ProjectUtil.getBOCalendarFieldValue(m_SMSAlert, "StartTime"));
-			batchEndDate = ProjectUtil.concatDates(
-					ProjectUtil.getBOCalendarFieldValue(m_SMSAlert, "EndDate"),
-					ProjectUtil.getBOCalendarFieldValue(m_SMSAlert, "EndTime"));
+			batchBeginDate = ProjectUtil.getBOCalendarFieldValue(m_SMSAlert, "StartDate");
+			batchEndDate = ProjectUtil.getBOCalendarFieldValue(m_SMSAlert, "EndDate");
 			
-			if (isPeriodic && batchEndDate.compareTo(batchBeginDate) < 0)
+			if (isPeriodic)
 			{
-				JOptionPane.showMessageDialog(null, m_Container.getMessage(500052,7));
-				m_Event.setReturnObject(false);
-				return;
+				if (batchEndDate == null)
+				{
+					JOptionPane.showMessageDialog(null, m_Container.getMessage(500052,9));
+					event.setReturnObject(false);
+					return;
+				}
+				else if (batchEndDate.compareTo(batchBeginDate) < 0)
+				{
+					JOptionPane.showMessageDialog(null, m_Container.getMessage(500052,7));
+					event.setReturnObject(false);
+					return;
+				}
 			}
 		}
 		

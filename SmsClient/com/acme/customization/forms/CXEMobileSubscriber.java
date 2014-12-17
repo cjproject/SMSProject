@@ -227,10 +227,12 @@ public class CXEMobileSubscriber{
 					CustomBusinessObject person = (CustomBusinessObject) personList.get(0);
 					ProjectUtil.setMemberValueUn((CustomBusinessObject)data, "Phonenumber", ProjectUtil.getBOStringFieldValue(person, "PersonPhonenumber"));						
 				}
-				resetValues(container, null);
 			}
 			
 		}
+		else
+			ProjectUtil.setMemberValueUn((CustomBusinessObject)data, "Phonenumber", "");
+		resetValues(container, null);
 		return true;
 	}
 	
@@ -238,8 +240,13 @@ public class CXEMobileSubscriber{
 	{
 		CustomBusinessObject cBO = (CustomBusinessObject) data; 
 		String [] strArr = StringUtil.split(ProjectUtil.getBOStringFieldValue(data, "Name"), ' ');
-		ProjectUtil.setMemberValueUn(cBO, "Name", strArr.length > 0 ? strArr[0] :" ");
-		ProjectUtil.setMemberValueUn(cBO, "SurName", strArr.length > 1  ? strArr[1] :" ");
+		if (strArr != null)
+		{
+			ProjectUtil.setMemberValueUn(cBO, "Name", strArr.length > 0 ? strArr[0] :" ");
+			ProjectUtil.setMemberValueUn(cBO, "SurName", strArr.length > 1  ? strArr[1] :" ");
+		}
+		else
+			ProjectUtil.setMemberValueUn(cBO, "SurName", "");
 		resetValues(container, null);
 		return true;
 	}

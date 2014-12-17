@@ -62,4 +62,10 @@ public class CXEMessageTemplate extends JLbsCustomXUIEventListener {
 		
 	}
 
+	public void onCanContinueCheckMandatory(JLbsXUIControlEvent event)
+	{
+		/** onCanContinueMandatoryCheck : Bu metod, formlar için tanýmlanan girilmesi zorunlu alanlarýn kontrolünden sonra çalýþýr. Kontrol sonrasý gelen hata mesajlarýnýn listesini düzenlemeye izin verir. */
+		System.out.println(event.getStringData());
+	}
+
 }
