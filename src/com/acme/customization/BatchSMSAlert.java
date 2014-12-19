@@ -32,6 +32,7 @@ import com.lbs.batch.classes.BatchSuspensionDataBase;
 import com.lbs.batch.classes.ServerBatchUtil;
 import com.lbs.data.database.cache.DBPreparedStatementCache;
 import com.lbs.data.objects.CustomBusinessObject;
+import com.lbs.data.objects.CustomBusinessObjects;
 import com.acme.customization.cbo.CEOAlertInfo;
 import com.acme.customization.cbo.CEOSMSObject;
 import com.acme.customization.client.MessageSplitControl;
@@ -101,24 +102,35 @@ public class BatchSMSAlert extends BatchOperationBase implements IBatchTerminata
 				totalCount++;
 				recStartCount++;
 				Integer userRef = (Integer) m_UsersRefList.get(i);
-
-				CustomBusinessObject user = ProjectUtil.readObject(m_ServerContext, "CBOMblInfoUser", userRef);
-				ProjectUtil.setUserInfo(m_ServerContext, user);
+				CustomBusinessObject user = null;
+				if (userRef.intValue() > 0)
+				{
+					user = ProjectUtil.readObject(m_ServerContext, "CBOMblInfoUser", userRef);
+					ProjectUtil.setUserInfo(m_ServerContext, user);
+				}
+				else
+				{
+					CustomBusinessObjects users = (CustomBusinessObjects) ProjectUtil.getMemberValue(m_SMSAlertObj, "AlertUsers");
+					user = (CustomBusinessObject) users.get(i);
+				}
 				
-				String phoneNumber = ProjectUtil.getBOStringFieldValue(user, "Phonenumber");
-				String title = ProjectUtil.getBOStringFieldValue(user, "Title");
-				String message = prepareMessage(user);
-				
-				ArrayList ToList = new ArrayList<String>();
-				ToList.add(phoneNumber);
-				SubmitResponse response = maradit.submit(ToList, message);
-				if (response.statusCode != 200 || !response.status) {
-					CEOSMSObject logRec = new CEOSMSObject();
-					logRec.setPhoneNumber(phoneNumber);
-					logRec.setTitle(title);
-					logRec.setError(response.error);
-					logRec.setStatusDesc(response.statusDescription);
-					m_LogList.add(logRec);
+				if (user != null)
+				{
+					String phoneNumber = ProjectUtil.getBOStringFieldValue(user, "Phonenumber");
+					String title = ProjectUtil.getBOStringFieldValue(user, "Title");
+					String message = prepareMessage(user);
+					
+					ArrayList ToList = new ArrayList<String>();
+					ToList.add(phoneNumber);
+					SubmitResponse response = maradit.submit(ToList, message);
+					if (response.statusCode != 200 || !response.status) {
+						CEOSMSObject logRec = new CEOSMSObject();
+						logRec.setPhoneNumber(phoneNumber);
+						logRec.setTitle(title);
+						logRec.setError(response.error);
+						logRec.setStatusDesc(response.statusDescription);
+						m_LogList.add(logRec);
+					}
 				}
 			}
 

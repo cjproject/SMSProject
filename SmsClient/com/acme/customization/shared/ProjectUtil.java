@@ -235,7 +235,7 @@ public class ProjectUtil
 		//alertInfo.setSmsObjectList((ArrayList)ProjectUtil.getMemberValue(alertCBO, "SmsObjectList"));
 		CustomBusinessObjects users = (CustomBusinessObjects)ProjectUtil.getMemberValue(alertCBO, "AlertUsers");
 		if (users != null)
-			for (int i = users.size() - 1; i >= 0; i--)
+			for (int i = 0; i < users.size(); i++)
 			{
 				CustomBusinessObject user = (CustomBusinessObject) users.get(i);
 				alertInfo.getUsersRefList().add(ProjectUtil.getBOIntegerFieldValue(user, "UserRef"));

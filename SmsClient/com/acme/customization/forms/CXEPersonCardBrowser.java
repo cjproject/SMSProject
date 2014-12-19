@@ -67,12 +67,13 @@ public class CXEPersonCardBrowser {
 					ProjectUtil.setMemberValueUn(user, "Title",  ProjectUtil.getBOStringFieldValue(user, "PersonName") + ' ' +  ProjectUtil.getBOStringFieldValue(user, "PersonSurName"));
 					ProjectUtil.setMemberValueUn(user, "Tckno",  ProjectUtil.getBOStringFieldValue(user, "PersonIdTCNo"));
 					ProjectUtil.setMemberValueUn(user, "Phonenumber",  ProjectUtil.getBOStringFieldValue(user, "PersonPhonenumber"));
+					ProjectUtil.setMemberValueUn(user, "UserRef",  0);
 					
 				}
 				
 				
 				ProjectUtil.setMemberValueUn(alert, "AlertUsers", userList);
-				event.getContainer().openChild("Forms/CXFSMSAlert.lfrm", alert, true, JLbsXUITypes.XUIMODE_DEFAULT);
+				event.getContainer().openChild("Forms/CXFSendSMS.lfrm", alert, true, JLbsXUITypes.XUIMODE_DEFAULT);
 							 
 		 }
 	}
